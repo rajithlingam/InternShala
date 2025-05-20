@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Selectors and Combinators</title>
+    <style>
+      * {
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        color: darkblue;
+      }
+
+      #main {
+        background-color: #f0f0f0;
+        padding: 20px;
+      }
+
+      .highlight {
+        background-color: yellow;
+      }
+
+      input[type="text"] {
+        border: 2px solid green;
+      }
+
+      #main p {
+        color: darkgreen;
+      }
+
+      #main > ul {
+        border: 1px solid gray;
+      }
+
+      h2 + p {
+        font-style: italic;
+      }
+
+      h2 ~ p {
+        margin-left: 20px;
+      }
+
+      a:hover {
+        color: red;
+      }
+
+      li:first-child {
+        font-weight: bold;
+      }
+
+      li:last-child {
+        color: blue;
+      }
+
+      li:nth-child(2) {
+        background-color: lightgray;
+      }
+
+      p::before {
+        content: "👉 ";
+        color: orange;
+      }
+
+      p::after {
+        content: " ✅";
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Selectors and Combinators</h1>
+
+    <div id="main">
+      <p>This is a paragraph inside the main container.</p>
+      <ul>
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+      </ul>
+      <input type="text" placeholder="Text input" />
+      <input type="button" value="Click me" />
+      <a href="#">Hover over me</a>
+    </div>
+
+    <h2>Sibling Section</h2>
+    <p>This is an adjacent sibling paragraph.</p>
+    <p>This is a general sibling paragraph.</p>
+
+    <p class="highlight">This is a highlighted paragraph.</p>
+  </body>
+</html>
