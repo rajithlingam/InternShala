@@ -1,0 +1,46 @@
+header {
+  text-align: center;
+  text-decoration:underline double 3px green ;
+}
+
+#para-1 {
+  text-align: center;
+  text-shadow: 1px 0.5px purple;
+}
+
+#para-2 {
+  text-align: end;
+  text-indent: 222px;
+}
+
+#para-3 {
+  text-align: justify;
+  font-weight: 900;
+}
+
+#para-4 {
+  text-align: left;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#para-5 {
+  text-align: right;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#para-6 {
+  text-align: start;
+  font-style: italic;
+}
+
+#para-7 {
+  text-align: inherit;
+}
+
+#para-8 {
+  text-align: initial;
+}
+
+#para-9 {
+  text-align: unset;
+}

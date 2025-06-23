@@ -1,0 +1,65 @@
+body {
+  background-color: red;
+  margin: 0%;
+}
+
+.container {
+  position: relative;
+  background-color: sandybrown;
+  height: 100vh;
+  width: 100vw;
+  /* display: flex;
+  align-items: end; */
+}
+
+.box {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  /* bottom: 0%; */
+  background-color: white;
+  color: red;
+  /* text-shadow: 2px 2px 0px sandybrown, 2.5px 2.5px 0px yellow; */
+  border: 5px solid salmon;
+  font-weight: 900;
+  font-size: 2rem;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation-name: boxRoundTrip;
+  animation-duration: 12s;
+  animation-iteration-count: 3;
+  animation-timing-function:linear;
+  animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes boxRoundTrip {
+  0% {
+    bottom: 0vh;
+    left: 0px;
+    background-color: #FFB6B9; /* Soft Rose (Love) */
+    color: #6A1B9A;            /* Plum Purple */
+  }
+  25% {
+    bottom: 50vh;
+    left: 0vh;
+    background-color: #FFF176; /* Lemon Yellow (Energy) */
+    color: #F57F17;            /* Amber Orange */
+  }
+  50% {
+    bottom: 50vh;
+    left: 100vh;
+    background-color: #B2EBF2; /* Aqua Blue (Happiness) */
+    color: #00796B;            /* Teal Green */
+  }
+  100% {
+    left: 100vh;
+    bottom: 90vh;
+    background-color: #C5CAE9; /* Lavender Blue (Peace) */
+    color: #303F9F;            /* Indigo Blue */
+  }
+}
