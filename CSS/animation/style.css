@@ -31,35 +31,34 @@ body {
   animation-name: boxRoundTrip;
   animation-duration: 12s;
   animation-iteration-count: 3;
-  animation-timing-function:linear;
+  animation-timing-function: linear;
   animation-direction: alternate;
-    animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
-
 
 @keyframes boxRoundTrip {
   0% {
     bottom: 0vh;
     left: 0px;
-    background-color: #FFB6B9; /* Soft Rose (Love) */
-    color: #6A1B9A;            /* Plum Purple */
+    background-color: #ffb6b9; /* Soft Rose (Love) */
+    color: #6a1b9a; /* Plum Purple */
   }
   25% {
     bottom: 50vh;
     left: 0vh;
-    background-color: #FFF176; /* Lemon Yellow (Energy) */
-    color: #F57F17;            /* Amber Orange */
+    background-color: #fff176; /* Lemon Yellow (Energy) */
+    color: #f57f17; /* Amber Orange */
   }
   50% {
     bottom: 50vh;
     left: 100vh;
-    background-color: #B2EBF2; /* Aqua Blue (Happiness) */
-    color: #00796B;            /* Teal Green */
+    background-color: #b2ebf2; /* Aqua Blue (Happiness) */
+    color: #00796b; /* Teal Green */
   }
   100% {
     left: 100vh;
     bottom: 90vh;
-    background-color: #C5CAE9; /* Lavender Blue (Peace) */
-    color: #303F9F;            /* Indigo Blue */
+    background-color: #c5cae9; /* Lavender Blue (Peace) */
+    color: #303f9f; /* Indigo Blue */
   }
 }
