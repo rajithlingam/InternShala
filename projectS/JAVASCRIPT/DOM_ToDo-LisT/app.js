@@ -14,7 +14,7 @@ function listItemOfToDO() {
   recordItem.innerHTML = `
     <span class="record-list">${todoText}</span>
     <span class="record-but">
-      <button class="record-but-check">&#128505;</button>
+      <button class="record-but-check">✔</button>
       <button class="record-but-cross">&#10540;</button>
     </span>
     <span class="delete-btn">
