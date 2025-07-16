@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.main {
+  margin-top: 2rem;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #ccc;
+  padding: 1rem;
+  height: fit-content;
+  border-radius: 8px;
+  background-color: limegreen;
+}
+
+h1 {
+  color: blue;
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.inputcol {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: 600px;
+}
+
+#textarea {
+  background-color: white;
+  color: red;
+  flex: 1;
+  resize: none;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: none;
+}
+
+#buttoninput {
+  height: 2.5rem;
+  padding: 0 1rem;
+  background-color: gold;
+  color: green;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s ease background-color;
+}
+
+#buttoninput:hover {
+  background-color: yellow;
+}
+.record {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  width: 600px;
+  background-color: transparent;
+}
+
+.record-item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.record-list {
+  width: 90%;
+}
+
+.record-item-container:hover {
+  transform: scale(1.03);
+}
+
+.record-but {
+  width: 7rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.record-but-check,
+.record-but-cross,
+.record-but-delete {
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.record-but-check {
+  color: green;
+}
+
+.record-but-check:hover {
+  transform: scale(1.5);
+}
+
+.record-but-cross {
+  color: red;
+  font-size: 35px;
+}
+
+.record-but-cross:hover {
+  transform: scale(1.5);
+}
+.delete-btn {
+  margin-left: 2rem;
+  transition: transform 0.2s ease-in-out;
+}
+.delete-btn:hover {
+  transform: scale(1.5);
+}
+
+.record-list {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: orangered;
+  max-width: 70%;
+  overflow-wrap: break-word;
+}
+
+.done {
+  color: green;
+  font-weight: bold;
+}
+
+.not-done {
+  color: red;
+  font-weight: bold;
+}
