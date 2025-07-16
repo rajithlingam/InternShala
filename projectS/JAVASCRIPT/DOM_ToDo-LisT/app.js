@@ -16,11 +16,11 @@ function listItemOfToDO() {
 
   recordItem.innerHTML = `<span class="record-list">${txtArea.value}</span>
         <span class="record-but">
-          <button class="record-but-check">🗹</button>
-          <button class="record-but-cross">⤬</button>
+          <button class="record-but-check">&#128505;</button>
+          <button class="record-but-cross">&#10540;</button>
         </span>
         <span class="delete-btn">
-        <button class="record-but-delete">⛔</button>
+        <button class="record-but-delete">&#9940;</button>
         </span>
         `;
 
