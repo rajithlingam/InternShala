@@ -1,49 +1,28 @@
-function selectImage() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log("1. Image Selected");
-      resolve();
-    }, 4000);
-  });
+function fstcall() {
+  setTimeout(() => {
+    console.log("Img Uploaded!");
+    sndcall();
+  }, 4000);
 }
 
-function applyFilter() {
-  return new Promise((resolve,_) => {
-    setTimeout(() => {
-      console.log("2. Filter Applied");
-      resolve();
-    }, 2000);
-  });
+function sndcall() {
+  setTimeout(() => {
+    console.log("Filter was added!");
+    trdcall();
+  }, 2000);
 }
 
-function addCaption() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log("3. Caption Added");
-      resolve();
-    }, 5000);
-  });
+function trdcall() {
+  setTimeout(() => {
+    console.log("Caption was Added!");
+    fthcall();
+  }, 5000);
 }
 
-function uploadPost() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log("4. Post Uploaded");
-      resolve();
-    }, 3000);
-  });
+function fthcall() {
+  setTimeout(() => {
+    console.log("Post Uploaded!");
+  }, 3000);
 }
 
-selectImage()
-  .then(() => applyFilter())
-  .then(() => addCaption())
-  .then(() => uploadPost())
-  .then(() => {
-    console.log("✅ Instagram Post Created Successfully!");
-  })
-  .catch((error) => {
-    console.log("❌ Error occurred:", error);
-  })
-  .finally(() => {
-    console.log("🔚 Process Finished.");
-  });
+fstcall()
