@@ -79,9 +79,10 @@ npm run preview
 
 ---
 
-## 📸 Screencast
+## ​ Screencast
 
-<video controls src="Online-library.mp4" title="Online-library"></video>
+🎥 [Watch the demo video on GitHub](https://github.com/rajithlingam/InternShala/blob/main/projectS/REACT.JS/online-library/Online-library.mp4)
+
 ---
 
 ## 📌 Notes
