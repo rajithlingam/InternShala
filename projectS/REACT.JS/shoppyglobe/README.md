@@ -17,7 +17,7 @@ Record a short screencast showing:
 
 Example placeholder (replace with your own):
 
-![ShoppyGlobe Demo](./assets/demo.gif)
+(shoppyglobe.mp4 Demo video)[https://github.com/rajithlingam/InternShala/raw/refs/heads/main/projectS/REACT.JS/shoppyglobe/shoppyglobe.mp4]
 
 ---
 
@@ -107,12 +107,6 @@ src/
 * Code splitting with **React.lazy**
 * Suspense fallback with shimmer loaders
 * Redux selectors for efficient re-renders
-
----
-
-## 📸 Screenshots (Optional)
-
-> Add static screenshots here too if you want.
 
 ---
 
