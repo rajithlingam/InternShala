@@ -79,9 +79,9 @@ npm run preview
 
 ---
 
-## 📸 Screenshots
+## 📸 Screencast
 
-> (Add screenshots here if available)
+<video controls src="Screencast from 2025-08-19 20-32-23.webm" title="Title"></video>
 
 ---
 
