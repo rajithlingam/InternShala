@@ -17,7 +17,7 @@ Record a short screencast showing:
 
 Example placeholder (replace with your own):
 
-(shoppyglobe.mp4 Demo video)[https://github.com/rajithlingam/InternShala/raw/refs/heads/main/projectS/REACT.JS/shoppyglobe/shoppyglobe.mp4]
+[shoppyglobe.mp4 Demo video](https://github.com/rajithlingam/InternShala/raw/refs/heads/main/projectS/REACT.JS/shoppyglobe/shoppyglobe.mp4)
 
 ---
 
