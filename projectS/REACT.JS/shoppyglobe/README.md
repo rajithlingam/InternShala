@@ -2,9 +2,7 @@
 # 🛒 ShoppyGlobe - E-commerce Application
 
 ShoppyGlobe is a **React + Redux + TailwindCSS** based e-commerce application built as a project.  
-It implements product browsing, cart management, search, routing, shimmer UI, and responsive design.  
-This project is designed to cover **all requirements (250/250 marks)** in the evaluation rubric.
-
+It implements product browsing, cart management, search, routing, shimmer UI, and responsive design.
 ---
 
 ## 📹 Demo / Screencast
@@ -39,9 +37,9 @@ Example placeholder (replace with your own):
 
 ## 🛠️ Tech Stack
 
-- [React 18](https://react.dev/) (Vite)  
+- [React 19](https://react.dev/) (Vite)  
 - [Redux Toolkit](https://redux-toolkit.js.org/)  
-- [React Router v6](https://reactrouter.com/)  
+- [React Router v7](https://reactrouter.com/)  
 - [TailwindCSS](https://tailwindcss.com/)  
 - [DummyJSON API](https://dummyjson.com/)  
 
