@@ -1,4 +1,4 @@
-# Users API (Full Marks + DSA)
+# Users API
 
 A simple **RESTful API** built with **Node.js + Express** for managing users, with middleware, error handling, and extra DSA endpoints.
 
