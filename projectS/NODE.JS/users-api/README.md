@@ -1,7 +1,6 @@
 # Users API (Full Marks + DSA)
 
-A simple **RESTful API** built with **Node.js + Express** for managing users, with middleware, error handling, and extra DSA endpoints.  
-This project is designed exactly per assignment requirements for **100 marks**.
+A simple **RESTful API** built with **Node.js + Express** for managing users, with middleware, error handling, and extra DSA endpoints.
 
 ---
 
@@ -121,7 +120,7 @@ Paste these into **`SCREENSHOTS.md`**:
 
 ---
 
-✍️ **Author:** Rajith Lingam
-📅 **Date:** Aug 2025
+✍️ **Author:** RAJITHLINGAM
+📅 **Date:** 22-Aug-2025
 
 ---
