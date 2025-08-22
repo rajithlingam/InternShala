@@ -67,7 +67,7 @@ users-api/
 └── postman_collection.json # Importable Postman collection
 ```
 
----
+--- 
 
 ## 📖 Sample User Object
 
