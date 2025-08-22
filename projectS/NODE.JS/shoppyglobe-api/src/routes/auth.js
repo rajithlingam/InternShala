@@ -1,0 +1,10 @@
+import {Router} from 'express';
+import {body,validationResult} from 'express-validator';
+import bcrypt from 'bcrypt';
+import {User} from '../models/User.js';
+import {signToken} from '../middleware/auth.js';
+const r=Router();
+const validate=(rules)=>[...rules,(req,res,next)=>{const e=validationResult(req);if(!e.isEmpty())return res.status(400).json({error:'Validation error',issues:e.array()});next();}];
+r.post('/register',validate([body('name').optional().isString().isLength({min:2}),body('email').isEmail(),body('password').isString().isLength({min:6})]),async (req,res,next)=>{try{const {name='User',email,password}=req.body;const exists=await User.findOne({email});if(exists)return res.status(409).json({error:'Email already registered'});const passwordHash=await bcrypt.hash(password,10);const user=await User.create({name,email,passwordHash});return res.status(201).json({id:user._id,name:user.name,email:user.email});}catch(e){next(e);}});
+r.post('/login',validate([body('email').isEmail(),body('password').isString().isLength({min:6})]),async (req,res,next)=>{try{const {email,password}=req.body;const user=await User.findOne({email});if(!user)return res.status(401).json({error:'Invalid credentials'});const ok=await bcrypt.compare(password,user.passwordHash);if(!ok)return res.status(401).json({error:'Invalid credentials'});const token=signToken({id:user._id,email:user.email});return res.status(200).json({token});}catch(e){next(e);}});
+export default r;

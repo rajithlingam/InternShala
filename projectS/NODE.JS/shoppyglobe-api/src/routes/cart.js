@@ -1,0 +1,13 @@
+import {Router} from 'express';
+import {body,param,validationResult} from 'express-validator';
+import {requireAuth} from '../middleware/auth.js';
+import {Product} from '../models/Product.js';
+import {CartItem} from '../models/CartItem.js';
+const r=Router();
+const validate=(rules)=>[...rules,(req,res,next)=>{const e=validationResult(req);if(!e.isEmpty())return res.status(400).json({error:'Validation error',issues:e.array()});next();}];
+r.use(requireAuth);
+r.get('/',async(req,res,next)=>{try{const items=await CartItem.find({user:req.user.id}).populate('product');return res.status(200).json(items);}catch(e){next(e);}});
+r.post('/',validate([body('productId').isMongoId(),body('quantity').isInt({min:1}).toInt()]),async(req,res,next)=>{try{const {productId,quantity}=req.body;const product=await Product.findById(productId);if(!product)return res.status(404).json({error:'Product not found'});if(product.stock<quantity)return res.status(400).json({error:'Insufficient stock'});let item=await CartItem.findOne({user:req.user.id,product:productId});if(item){const newQty=item.quantity+quantity;if(newQty>product.stock)return res.status(400).json({error:'Quantity exceeds stock'});item.quantity=newQty;await item.save();return res.status(200).json(item);}else{item=await CartItem.create({user:req.user.id,product:productId,quantity});return res.status(201).json(item);}}catch(e){next(e);}});
+r.put('/:itemId',validate([param('itemId').isMongoId(),body('quantity').isInt({min:1}).toInt()]),async(req,res,next)=>{try{const item=await CartItem.findOne({_id:req.params.itemId,user:req.user.id});if(!item)return res.status(404).json({error:'Cart item not found'});const product=await Product.findById(item.product);if(!product)return res.status(404).json({error:'Product not found'});if(req.body.quantity>product.stock)return res.status(400).json({error:'Quantity exceeds stock'});item.quantity=req.body.quantity;await item.save();return res.status(200).json(item);}catch(e){next(e);}});
+r.delete('/:itemId',validate([param('itemId').isMongoId()]),async(req,res,next)=>{try{const item=await CartItem.findOneAndDelete({_id:req.params.itemId,user:req.user.id});if(!item)return res.status(404).json({error:'Cart item not found'});return res.status(200).json({message:'Cart item removed',id:item._id});}catch(e){next(e);}});
+export default r;

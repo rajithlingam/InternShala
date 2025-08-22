@@ -1,0 +1,162 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "ShoppyGlobe API + DSA",
+  "dateExported": "2025-08-22T16:08:39.523833",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "register",
+      "name": "Register",
+      "method": "POST",
+      "url": "http://localhost:4000/register",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\"email\": \"alice@example.com\", \"password\": \"Secret123!\"}"
+      }
+    },
+    {
+      "_id": "login",
+      "name": "Login",
+      "method": "POST",
+      "url": "http://localhost:4000/login",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\"email\": \"alice@example.com\", \"password\": \"Secret123!\"}"
+      }
+    },
+    {
+      "_id": "products",
+      "name": "List Products",
+      "method": "GET",
+      "url": "http://localhost:4000/products"
+    },
+    {
+      "_id": "productById",
+      "name": "Get Product by ID",
+      "method": "GET",
+      "url": "http://localhost:4000/products/{{id}}"
+    },
+    {
+      "_id": "cartAdd",
+      "name": "Add to Cart",
+      "method": "POST",
+      "url": "http://localhost:4000/cart",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\"productId\": \"{{id}}\", \"quantity\": 2}"
+      }
+    },
+    {
+      "_id": "cartList",
+      "name": "Get Cart",
+      "method": "GET",
+      "url": "http://localhost:4000/cart",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ]
+    },
+    {
+      "_id": "cartUpdate",
+      "name": "Update Cart Item",
+      "method": "PUT",
+      "url": "http://localhost:4000/cart/{{itemId}}",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\"quantity\": 3}"
+      }
+    },
+    {
+      "_id": "cartDelete",
+      "name": "Delete Cart Item",
+      "method": "DELETE",
+      "url": "http://localhost:4000/cart/{{itemId}}",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{token}}"
+        }
+      ]
+    },
+    {
+      "_id": "linear",
+      "name": "DSA Linear Search",
+      "method": "POST",
+      "url": "http://localhost:4000/dsa/linear-search",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\"array\": [5, 3, 9, 1, 3], \"target\": 9}"
+      }
+    },
+    {
+      "_id": "bubble",
+      "name": "DSA Bubble Sort",
+      "method": "POST",
+      "url": "http://localhost:4000/dsa/bubble-sort",
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\"array\": [5, 3, 9, 1, 3]}"
+      }
+    }
+  ],
+  "variables": [
+    {
+      "name": "token",
+      "value": ""
+    },
+    {
+      "name": "id",
+      "value": ""
+    },
+    {
+      "name": "itemId",
+      "value": ""
+    }
+  ]
+}
