@@ -69,25 +69,6 @@ users-api/
 
 ---
 
-## 📸 Screenshots to Include (Submission Guideline)
-
-Paste these into **`SCREENSHOTS.md`**:
-
-1. `GET /users` → returns initial user list
-2. `GET /users/1` → returns a single user
-3. `POST /user` → adds a new user (201 Created)
-4. `PUT /user/:id` → updates an existing user (200 OK)
-5. `DELETE /user/:id` → deletes a user (200 OK)
-6. Validation error (400 Bad Request) → try POST without fields
-7. Not-found (404 Not Found) → e.g. `GET /nope`
-8. Logger middleware output in console
-9. DSA:
-
-   - `POST /dsa/linear-search` with `{ "array": [5,3,9,1,3], "target": 9 }`
-   - `POST /dsa/bubble-sort` with `{ "array": [5,3,9,1,3] }`
-
----
-
 ## 📖 Sample User Object
 
 ```json
