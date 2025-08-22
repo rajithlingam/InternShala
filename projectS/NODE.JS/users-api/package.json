@@ -1,0 +1,14 @@
+{
+  "name": "users-api-fullmarks-dsa",
+  "version": "1.0.0",
+  "description": "RESTful Users API (Express) with logging, validation, error handling, in-memory store + basic DSA endpoints",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "info": {
+    "name": "Users API \u2013 Full Marks + DSA",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/health"
+      }
+    },
+    {
+      "name": "List Users",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/users"
+      }
+    },
+    {
+      "name": "Get User by ID",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/users/1"
+      }
+    },
+    {
+      "name": "Create User",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/user",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"2\",\n  \"firstName\": \"Riya\",\n  \"lastName\": \"Sharma\",\n  \"hobby\": \"Painting\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Update User",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/user/2",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Riya\",\n  \"lastName\": \"Verma\",\n  \"hobby\": \"Sketching\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Delete User",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/user/2"
+      }
+    },
+    {
+      "name": "DSA Linear Search",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/dsa/linear-search",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"array\": [\n    5,\n    3,\n    9,\n    1,\n    3\n  ],\n  \"target\": 9\n}"
+        }
+      }
+    },
+    {
+      "name": "DSA Bubble Sort",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/dsa/bubble-sort",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"array\": [\n    5,\n    3,\n    9,\n    1,\n    3\n  ]\n}"
+        }
+      }
+    }
+  ]
+}

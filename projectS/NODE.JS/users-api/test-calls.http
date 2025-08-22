@@ -1,0 +1,49 @@
+### Health
+GET http://localhost:3000/health
+
+### List Users
+GET http://localhost:3000/users
+
+### Get User by ID
+GET http://localhost:3000/users/1
+
+### Create User
+POST http://localhost:3000/user
+Content-Type: application/json
+
+{
+  "id": "2",
+  "firstName": "Riya",
+  "lastName": "Sharma",
+  "hobby": "Painting"
+}
+
+### Update User
+PUT http://localhost:3000/user/2
+Content-Type: application/json
+
+{
+  "firstName": "Riya",
+  "lastName": "Verma",
+  "hobby": "Sketching"
+}
+
+### Delete User
+DELETE http://localhost:3000/user/2
+
+### DSA Linear Search
+POST http://localhost:3000/dsa/linear-search
+Content-Type: application/json
+
+{
+  "array": [5, 3, 9, 1, 3],
+  "target": 9
+}
+
+### DSA Bubble Sort
+POST http://localhost:3000/dsa/bubble-sort
+Content-Type: application/json
+
+{
+  "array": [5, 3, 9, 1, 3]
+}
