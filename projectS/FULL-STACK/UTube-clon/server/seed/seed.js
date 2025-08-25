@@ -34,52 +34,28 @@ async function run() {
 
   const sampleVideos = [
     {
-      title: "Master JavaScript in 30 Minutes",
-      description: "The fastest way to ramp up your JS skills.",
-      videoUrl:
-        "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+      title: "JavaScript Crash Course",
+      description: "Quick intro to JavaScript basics.",
+      videoUrl: "http://localhost:5001/videos/javascript.mp4",
       thumbnailUrl:
         "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/500px-JavaScript-logo.png",
-      categories: [
-        "Programming",
-        "Education",
-        "JavaScript",
-        "Frontend",
-        "Tutorial",
-        "Popular",
-      ],
+      categories: ["Programming", "JavaScript", "Frontend", "Tutorial"],
     },
     {
-      title: "Express.js Crash Course 2025",
-      description: "Build production APIs with Express and Mongo.",
-      videoUrl:
-        "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
+      title: "Express.js Deep Dive",
+      description: "Learn how to build backend APIs with Express.js.",
+      videoUrl: "http://localhost:5001/videos/express.mp4",
       thumbnailUrl:
         "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png",
-      categories: [
-        "Programming",
-        "Backend",
-        "Node",
-        "Express",
-        "Tutorial",
-        "New",
-      ],
+      categories: ["Programming", "Backend", "Express", "Node"],
     },
     {
-      title: "React Course",
-      description: "React Basic Course",
-      videoUrl:
-        "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+      title: "React Tutorial",
+      description: "Understand React fundamentals step by step.",
+      videoUrl: "http://localhost:5001/videos/react.mp4",
       thumbnailUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1150px-React-icon.svg.png",
-      categories: [
-        "Programming",
-        "React",
-        "Frontend",
-        "Education",
-        "Advanced",
-        "Popular",
-      ],
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+      categories: ["Programming", "Frontend", "React", "Education"],
     },
   ];
 
