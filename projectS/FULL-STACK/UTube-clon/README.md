@@ -5,73 +5,60 @@ It allows users to browse, upload, and watch videos (local MP4 + YouTube links),
 
 ---
 
-## 🎯 Objective
-Develop a **YouTube clone** with **authentication, search, filters, CRUD operations, responsive design, and DSA integration** to replicate real-world application development.
-
----
-
 ## ✨ Features (Mapped to Rubric)
 
-### 🖥 Frontend (React) — *170 Marks*
-- **Home Page UI/UX (40)**  
+### 🖥 Frontend (React)
+- **Home Page UI/UX**  
   - YouTube-style header with **search bar** + Sign-in button  
   - Toggleable **sidebar with hamburger menu**  
   - **Category filter chips (≥6)**  
   - Responsive **video grid** with thumbnails, title, channel name, and views  
 
-- **User Authentication (40)**  
+- **User Authentication**  
   - Register with **Username, Email, Password**  
   - JWT-based login + validations with error messages  
   - Logged-in user’s name + avatar shown in header  
 
-- **Video Player Page (50)**  
+- **Video Player Page**  
   - **ReactPlayer** supports **YouTube links + local MP4s**  
   - Shows **Title, Description, Channel, Views**  
   - **Like / Dislike buttons** with DB persistence  
   - **Comments CRUD** (add/edit/delete)  
 
-- **Channel Page (40)**  
+- **Channel Page**  
   - Owner can **create channel** (after sign-in)  
   - Shows list of channel’s videos  
   - Owner can **upload, edit, delete videos**  
 
 ---
 
-### ⚙️ Backend (Node.js + Express) — *120 Marks*
-- **API Design (40)**  
+### ⚙️ Backend (Node.js + Express)
+- **API Design**  
   - `/api/auth` → Register, Login, Profile  
   - `/api/channels` → Channel CRUD, list videos  
   - `/api/videos` → CRUD videos, like/dislike, search/filter  
   - `/api/comments` → CRUD comments  
 
-- **Data Handling (40)**  
+- **Data Handling**  
   - MongoDB collections: **Users, Channels, Videos, Comments**  
   - Video metadata stored: `videoUrl`, `thumbnailUrl`, `categories`  
 
-- **JWT Integration (40)**  
+- **JWT Integration**  
   - Middleware protects private routes  
   - Owner-only access for edit/delete actions  
 
 ---
 
-### 🔎 Search & Filter — *40 Marks*
-- **Search by title (20)** → Regex search via header bar  
-- **Filter by category (20)** → Grid updates based on chip filters  
+### 🔎 Search & Filter
+- **Search by title** → Regex search via header bar  
+- **Filter by category** → Grid updates based on chip filters  
 
 ---
 
-### 📱 Responsiveness — *30 Marks*
+### 📱 Responsiveness
 - Fully responsive (Mobile, Tablet, Desktop)  
 - Sidebar auto-hides on mobile  
 - Sticky header & grid reflow  
-
----
-
-### 🧩 Code Quality & Docs — *40 Marks*
-- ES Modules only (no CommonJS)  
-- Vite for React frontend (not CRA)  
-- Clean folder structure: `client/` + `server/`  
-- Well-commented code + this README  
 
 ---
 
@@ -105,15 +92,6 @@ UTube-clon/
 
 ---
 
-## 🧮 DSA Integration
-- **Stack & Queue** → Used for browsing history + play queue  
-- **QuickSort** → Sorts videos by views before rendering  
-- **Binary Search** → Used for fast video title lookups  
-- **Trie** → Autocomplete suggestions in search bar  
-- **Debounce** → Optimized search input  
-
----
-
 ## ⚡ Installation & Setup
 
 ### 1) Backend
@@ -144,22 +122,6 @@ After running `npm run seed`:
 
 ---
 
-## 📊 Marks Coverage
-✔ Home Page (40)  
-✔ Authentication (40)  
-✔ Video Player (50)  
-✔ Channel Page (40)  
-✔ API Design (40)  
-✔ Data Handling (40)  
-✔ JWT Security (40)  
-✔ Search + Filter (40)  
-✔ Responsiveness (30)  
-✔ Code Quality + Docs (40)  
-
-**Total: 400 / 400 ✅**
-
----
-
 ## 📹 Demo Flow
 1. **Home Page** → Header, sidebar toggle, filter chips, video grid  
 2. **Search “React”** → Results filtered by title  
@@ -170,18 +132,6 @@ After running `npm run seed`:
 
 ---
 
-## 📌 Commit Guidelines
-- Keep commits atomic (frontend vs backend)  
-- Minimum 30 commits  
-- Example commits:  
-  - `feat(api): add video CRUD routes`  
-  - `feat(ui): implement Watch page with ReactPlayer`  
-  - `fix: JWT middleware bug`  
-  - `docs: update README.md`  
-
----
-
 ## 👨‍💻 Author
-Developed as a **Capstone Project** for Full-Stack MERN, implementing real-world features and integrating **basic DSA** into a production-like system.
-
+RAJITHLINGAM ANBUMANI.
 ---
