@@ -1,4 +1,4 @@
-# StreamScape Server (Express + Mongo + JWT)
+# uTube Server (Express + Mongo + JWT)
 
 ## Quick Start
 1. `cp .env.sample .env` and set values.

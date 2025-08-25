@@ -40,7 +40,7 @@ export default function SignIn() {
         className="card"
         style={{ maxWidth: 420, margin: "40px auto", padding: 16 }}
       >
-        <h2 style={{ textAlign: "center" }}>StreamScape</h2>
+        <h2 style={{ textAlign: "center" }}>uTube</h2>
         <div
           className="row"
           style={{ justifyContent: "center", gap: 8, marginBottom: 12 }}

@@ -38,7 +38,8 @@ async function run() {
       description: "The fastest way to ramp up your JS skills.",
       videoUrl:
         "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-      thumbnailUrl: "https://i.imgur.com/hl9qG4K.jpeg",
+      thumbnailUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/500px-JavaScript-logo.png",
       categories: [
         "Programming",
         "Education",
@@ -53,7 +54,8 @@ async function run() {
       description: "Build production APIs with Express and Mongo.",
       videoUrl:
         "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-      thumbnailUrl: "https://i.imgur.com/1bX5QH6.jpeg",
+      thumbnailUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png",
       categories: [
         "Programming",
         "Backend",
@@ -64,11 +66,12 @@ async function run() {
       ],
     },
     {
-      title: "React Router v6 Deep Dive",
-      description: "Routing patterns for modern SPAs.",
+      title: "React Course",
+      description: "React Basic Course",
       videoUrl:
         "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-      thumbnailUrl: "https://i.imgur.com/hqZK5mE.jpeg",
+      thumbnailUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1150px-React-icon.svg.png",
       categories: [
         "Programming",
         "React",

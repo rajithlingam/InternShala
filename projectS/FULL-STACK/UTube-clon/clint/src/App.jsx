@@ -42,7 +42,7 @@ function Header({ onToggleSidebar }) {
         ☰
       </button>
       <Link to="/" className="brand">
-        StreamScape
+        uTube
       </Link>
       <form
         onSubmit={onSubmit}

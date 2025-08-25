@@ -1,4 +1,4 @@
-# StreamScape Client (React + Vite + React Router + Axios)
+# uTube Client (React + Vite + React Router + Axios)
 
 ## Quick Start
 
