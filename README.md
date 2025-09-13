@@ -29,7 +29,7 @@
 
 ### 4. Semantic HTML
 * Importance of Semantic HTML (6m 05s)
-* Semantic Tags (<header>, <nav>, <article>, <section>) (9m 55s)
+* Semantic Tags (`<header>`, `<nav>`, `<article>`, `<section>`) (9m 55s)
 * **Quiz**
 
 ➡️ **Module Test**
