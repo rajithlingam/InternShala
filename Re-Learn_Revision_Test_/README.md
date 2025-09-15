@@ -7,17 +7,17 @@
 | Segment | Start   | Re-learn        | Revision   | Test            | End     | Duration    |
 | ------- | ------- | --------------- | ---------- | --------------- | ------- | ----------- |
 | Wakeup  | 05:00AM | Wake up         | Get ready  | Pray / Food     | 09:00AM | 04:00 hrs   |
-| W-1     | 09:00AM | HTML / CSS      | Revise     | Test            | 11:00AM | 02:00 hrs   |
+| W-1     | 09:00AM | Full Revision   | Full Test  | Evaluation      | 11:00AM | 02:00 hrs   |
 | Break   | 11:00AM | On your mark    | Get set    | Go              | 11:15AM | 00:15 mins  |
-| W-2     | 11:15AM | JavaScript      | Revise     | Test            | 01:15PM | 02:00 hrs   |
+| W-2     | 11:15AM | HTML / CSS      | Revise     | Test            | 01:15PM | 02:00 hrs   |
 | Break   | 01:15PM | On your mark    | Get set    | Go              | 01:30PM | 00:15 mins  |
-| W-3     | 01:30PM | ReactJS         | Revise     | Test            | 03:30PM | 02:00 hrs   |
+| W-3     | 01:30PM | JavaScript      | Revise     | Test            | 03:30PM | 02:00 hrs   |
 | Break   | 03:30PM | On your mark    | Get set    | Go              | 03:45PM | 00:15 mins  |
-| W-4     | 03:45PM | Backend (Node)  | Revise     | Test            | 05:45PM | 02:00 hrs   |
+| W-4     | 03:45PM | ReactJS         | Revise     | Test            | 05:45PM | 02:00 hrs   |
 | Break   | 05:45PM | On your mark    | Get set    | Go              | 06:00PM | 00:15 mins  |
-| W-5     | 06:00PM | DSA             | Revise     | Test            | 08:00PM | 02:00 hrs   |
+| W-5     | 06:00PM | Backend (Node)  | Revise     | Test            | 08:00PM | 02:00 hrs   |
 | Break   | 08:00PM | On your mark    | Get set    | Go              | 08:15PM | 00:15 mins  |
-| W-6     | 08:15PM | Full Revision   | Full Test  | Evaluation      | 10:15PM | 02:00 hrs   |
+| W-6     | 08:15PM | DSA             | Revise     | Test            | 10:15PM | 02:00 hrs   |
 | Rest    | 10:15PM | Sleep           | Relax      | Recharge        | 05:00AM | 06:45 hrs   |
 
 ---
