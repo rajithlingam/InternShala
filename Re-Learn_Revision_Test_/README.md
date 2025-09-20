@@ -38,50 +38,57 @@
 
 ## W-2 (11:15AM – 01:15PM) → HTML / CSS
 
-- 1. Introduction to HTML
-  - Overview of HTML (0m 59s)
-  - Structure of an HTML Document (8m 59s)
-  - Meta Tags (6m 15s)
-- 2. HTML Elements
-  - Headings & Paragraphs (7m 22s)
-  - Strong, em, b and i elements (6m 22s)
-  - Formatting Tags (5m 25s)
-  - Block-level & Inline Elements (7m 24s)
+### 1. Introduction to HTML
+
+- Overview of HTML (0m 59s)
+- Structure of an HTML Document (8m 59s)
+- Meta Tags (6m 15s)
+
+### 2. HTML Elements
+
+- Headings & Paragraphs (7m 22s)
+- Strong, em, b and i elements (6m 22s)
+- Formatting Tags (5m 25s)
+- Block-level & Inline Elements (7m 24s)
 
 | Food Break | 01:15PM | On your mark | Get set | Go | 01:45PM | 00:30 mins |
 
 ## W-3 (01:45PM – 03:45PM) → JavaScript
 
-- 1. Introduction to Programming
-  - Introduction to Problem Solving (6m 16s)
-  - What is Programming? (8m 43s)
-  - Pseudocode and Flowcharts (11m 04s)
-  - Practice Problems on Flowcharts (14m 12s)
+### 1. Introduction to Programming
+
+- Introduction to Problem Solving (6m 16s)
+- What is Programming? (8m 43s)
+- Pseudocode and Flowcharts (11m 04s)
+- Practice Problems on Flowcharts (14m 12s)
 
 | Break | 03:45PM | On your mark | Get set | Go | 04:00PM | 00:15 mins |
 
 ## W-4 (04:00PM – 06:00PM) → ReactJS
 
-- 1. Getting Started with React
-  - What is React? (5m 59s)
-  - Using React in HTML WebPage I (5m 50s)
-  - Using React in HTML WebPage II (5m 40s)
+### 1. Getting Started with React
+
+- What is React? (5m 59s)
+- Using React in HTML WebPage I (5m 50s)
+- Using React in HTML WebPage II (5m 40s)
 
 | Food Break | 06:00PM | On your mark | Get set | Go | 06:30PM | 00:30 mins |
 
 ## W-5 (06:30PM – 08:30PM) → Backend (Node.js)
 
-- 1. Getting Started with Node.js
-  - Introduction to Node.js (9m 58s)
-  - Installing Node.js (8m 23s)
+### 1. Getting Started with Node.js
+
+- Introduction to Node.js (9m 58s)
+- Installing Node.js (8m 23s)
 
 | Break | 08:30PM | On your mark | Get set | Go | 08:45PM | 00:15 mins |
 
 ## W-6 (08:45PM – 10:45PM) → DSA
 
-- 1. Introduction to DSA
-  - What is DSA? (6m 45s)
-  - Types of Data Structures (7m 31s)
+### 1. Introduction to DSA
+
+- What is DSA? (6m 45s)
+- Types of Data Structures (7m 31s)
 
 | Rest | 10:45PM | Sleep | Relax | Recharge | 05:00AM | 06:15 hrs |
 
