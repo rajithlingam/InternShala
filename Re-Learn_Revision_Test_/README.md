@@ -1,4 +1,4 @@
-# 📅 15-Day Full Stack + DSA Re-learning (Internshala Syllabus)
+# 📅 6-Week Full Stack + DSA Master Plan
 
 ---
 
