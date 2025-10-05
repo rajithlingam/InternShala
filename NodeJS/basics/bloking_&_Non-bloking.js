@@ -10,6 +10,12 @@ let num = (numBlock) => {
 let getBlock = num(2);
 console.log(getBlock);
 
+/* ------------------------- EXPORT ------------------------- */
+module.export = {
+  numb: numb,
+};
+/* ------------------------- EXPORT ------------------------- */
+
 /* Asynchronous || Non-Blocking */
 
 let numb = (aNumBlock, callBack) => {
@@ -25,3 +31,7 @@ let numb = (aNumBlock, callBack) => {
 numb(1, (userCall) => {
   console.log(userCall);
 });
+
+/* ------------------------- EXPORT ------------------------- */
+
+/* ------------------------- EXPORT ------------------------- */
