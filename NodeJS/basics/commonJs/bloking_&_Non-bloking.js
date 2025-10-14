@@ -7,15 +7,6 @@ let num = (numBlock) => {
   return userData[numBlock];
 };
 
-let getBlock = num(2);
-console.log(getBlock);
-
-/* ------------------------- EXPORT ------------------------- */
-module.export = {
-  getBlock: getBlock,
-};
-/* ------------------------- EXPORT ------------------------- */
-
 /* Asynchronous || Non-Blocking */
 
 let numb = (aNumBlock, callBack) => {
@@ -28,10 +19,9 @@ let numb = (aNumBlock, callBack) => {
   }, 2000);
 };
 
-numb(1, (userCall) => {
-  console.log(userCall);
-});
-
 /* ------------------------- EXPORT ------------------------- */
-
+module.exports = {
+  num,
+  numb,
+};
 /* ------------------------- EXPORT ------------------------- */
