@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+
+
+/* ensure snap alignment for carousel children */
+.carousel-card { scroll-snap-align: center; }
+.category-pill { scroll-snap-align: center; }
+
+/* category pill sizing to match your screenshot */
+.category-pill {
+  min-width: 160px;
+  text-align: center;
+  font-weight: 500;
+  border-radius: 0.5rem; /* rounded-lg */
+}
+
+/* smooth scrolling */
+.hide-scrollbar { scroll-behavior: smooth; }
