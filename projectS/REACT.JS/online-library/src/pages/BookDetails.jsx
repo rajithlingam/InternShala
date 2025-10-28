@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const FALLBACK = "/images/default-book.jpg"; // just the path
+const FALLBACK = "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib";
 
 export default function BookDetails() {
   const { id } = useParams();
@@ -18,7 +18,7 @@ export default function BookDetails() {
         alt={book.title}
         className="w-full h-56 object-cover rounded-lg mb-4"
         onError={(e) => {
-          e.currentTarget.src = FALLBACK; // swap to fallback if broken
+          e.currentTarget.src = FALLBACK; 
         }}
       />
       <h1 className="text-2xl font-bold mb-1">{book.title}</h1>
