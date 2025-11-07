@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LPA to In-hand Salary Calculator</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      text-align: center;
+      margin: 40px;
+    }
+    .card {
+      background: white;
+      padding: 25px;
+      max-width: 400px;
+      margin: auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      background: #4f46e5;
+      color: white;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>💼 LPA → In-hand Salary Calculator</h2>
+    <input type="number" id="lpaInput" placeholder="Enter CTC in LPA" />
+    <button onclick="calculate()">Calculate</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculate() {
+      const lpa = parseFloat(document.getElementById("lpaInput").value);
+      if (isNaN(lpa) || lpa <= 0) {
+        document.getElementById("result").innerHTML = "⚠️ Please enter a valid number!";
+        return;
+      }
+
+      const annual = lpa * 100000;
+      const monthlyGross = annual / 12;
+      const inHand = monthlyGross * 0.75; // assume 25% deductions
+
+      document.getElementById("result").innerHTML = `
+        <p>💰 <b>Annual CTC:</b> ₹${annual.toLocaleString()}</p>
+        <p>📅 <b>Monthly Gross:</b> ₹${monthlyGross.toLocaleString()}</p>
+        <p>🪙 <b>Approx In-hand:</b> ₹${inHand.toLocaleString()}</p>
+      `;
+    }
+  </script>
+</body>
+</html>

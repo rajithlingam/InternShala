@@ -71,3 +71,4 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+/CSS/TailWindCSS/Basics/1_lessson/tailwindcss

@@ -40,25 +40,36 @@ body {
   0% {
     bottom: 0vh;
     left: 0px;
-    background-color: #ffb6b9; /* Soft Rose (Love) */
-    color: #6a1b9a; /* Plum Purple */
+    background-color: #ffb6b9;
+    /* Soft Rose (Love) */
+    color: #6a1b9a;
+    /* Plum Purple */
   }
+
   25% {
     bottom: 50vh;
     left: 0vh;
-    background-color: #fff176; /* Lemon Yellow (Energy) */
-    color: #f57f17; /* Amber Orange */
+    background-color: #fff176;
+    /* Lemon Yellow (Energy) */
+    color: #f57f17;
+    /* Amber Orange */
   }
+
   50% {
     bottom: 50vh;
     left: 100vh;
-    background-color: #b2ebf2; /* Aqua Blue (Happiness) */
-    color: #00796b; /* Teal Green */
+    background-color: #b2ebf2;
+    /* Aqua Blue (Happiness) */
+    color: #00796b;
+    /* Teal Green */
   }
+
   100% {
     left: 100vh;
     bottom: 90vh;
-    background-color: #c5cae9; /* Lavender Blue (Peace) */
-    color: #303f9f; /* Indigo Blue */
+    background-color: #c5cae9;
+    /* Lavender Blue (Peace) */
+    color: #303f9f;
+    /* Indigo Blue */
   }
 }

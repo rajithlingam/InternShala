@@ -22,3 +22,10 @@ const colors = ["red", "blue", "green", "yellow", "white", "\n"];
 
 [colors[3], colors[1]] = [colors[1], colors[3]];
 console.log(colors);
+
+// --------- EXAMPLE 3 ---------
+// ASSIGN ARRAY ELEMENTS TO VARIABLES
+
+const [red, blue, green, ...remaning] = colors;
+
+console.log(` ${red}, \n ${blue}, \n ${green}, \n \n ${remaning} `);
