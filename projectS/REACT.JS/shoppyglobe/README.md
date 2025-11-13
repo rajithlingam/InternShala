@@ -1,71 +1,53 @@
+# 📦 ShoppyGlobe — Dynamic Product Filter & Cart
 
-# 🛒 ShoppyGlobe - E-commerce Application
+A simple, mobile-first e-commerce mini-application built with **React + Vite + TailwindCSS + Redux Toolkit**.  
+Users can browse products, filter by category, search items, and manage a fully functional shopping cart.
 
-ShoppyGlobe is a **React + Redux + TailwindCSS** based e-commerce application built as a project.  
-It implements product browsing, cart management, search, routing, shimmer UI, and responsive design.
----
-
-## 📹 Demo / Screencast
-
-> 🎥 Add your demo GIF or video here once recorded.  
-Record a short screencast showing:
-- Browsing products
-- Viewing a product detail
-- Adding/removing items in cart
-- Checkout flow
-- Responsive (mobile/desktop) view
-
-Example placeholder (replace with your own):
-
-[shoppyglobe.mp4 Demo video](https://github.com/rajithlingam/InternShala/raw/refs/heads/main/projectS/REACT.JS/shoppyglobe/shoppyglobe.mp4)
+This project is inspired by my **FoodMall** project structure and created for the assignment **"Dynamic Product Filter & Cart"**.
 
 ---
 
-## ✨ Features
+## 🚀 Features
 
-- 📦 Product List fetched from [DummyJSON API](https://dummyjson.com/products)  
-- 🔎 Product search & filtering  
-- 🛍️ Product Detail page with dynamic routing  
-- 🛒 Cart management with add/remove/update using **Redux Toolkit**  
-- 🎨 **Shimmer UI (Skeleton loaders)** for list & detail pages  
-- ⚡ Lazy loading with `React.lazy` + `Suspense`  
-- 📱 **Responsive, mobile-first design** (TailwindCSS)  
-- 🚫 404 page for unknown routes  
-- ✅ Error handling for API fetch failures  
+### 🛒 Product Listing  
+- Fetches products from **DummyJSON API**  
+- Shows product name, category, price, image  
+- Add to Cart button  
+- Mobile-first responsive card layout  
+
+### 🔍 Search & Category Filtering  
+- Auto-generated categories from API  
+- Includes “All” category  
+- Real-time search  
+- Scrollable category pills on mobile  
+
+### 🛍 Shopping Cart  
+- Shows all added products  
+- Quantity updates with **Add** button  
+- Remove product  
+- Clear entire cart  
+- Dynamic total price calculation  
+
+### 🎉 Order Placement Flow  
+- Button: **“Place your favourite order”**  
+- Plays success animation video → `src/assets/Order_Placed_Success.mp4`  
+- Cart clears automatically after video ends  
+
+### 📱 Fully Mobile-First UI  
+- Cart becomes sidebar only on large screens  
+- Smooth UI with Tailwind  
+- Shimmer loading skeletons  
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠 Tech Stack
 
-- [React 19](https://react.dev/) (Vite)  
-- [Redux Toolkit](https://redux-toolkit.js.org/)  
-- [React Router v7](https://reactrouter.com/)  
-- [TailwindCSS](https://tailwindcss.com/)  
-- [DummyJSON API](https://dummyjson.com/)  
-
----
-
-## ⚙️ Getting Started
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/your-username/shoppyglobe.git
-cd shoppyglobe
-````
-
-### 2. Install dependencies
-
-```bash
-npm install
-```
-
-### 3. Run the development server
-
-```bash
-npm run dev
-```
-
-App will be live at [http://localhost:5173](http://localhost:5173).
+- **React 18**  
+- **Vite**  
+- **Redux Toolkit**  
+- **React Router DOM**  
+- **TailwindCSS**  
+- **DummyJSON API**
 
 ---
 
@@ -73,50 +55,56 @@ App will be live at [http://localhost:5173](http://localhost:5173).
 
 ```
 src/
-  App.jsx
-  main.jsx
-  index.css
-  components/
-    Header.jsx
-    NotFound.jsx
-    ProductItem.jsx
-    ProductList.jsx
-    CartItem.jsx
-    shimmer/
-      ProductCardSkeleton.jsx
-      ProductDetailSkeleton.jsx
-      CartItemSkeleton.jsx
-    ui/
-      Skeleton.jsx
-  pages/
-    Home.jsx
-    ProductDetail.jsx
-    Cart.jsx
-    Checkout.jsx
-  redux/
-    store.js
-    cartSlice.js
-  hooks/
-    useFetchProducts.js
+ ├── App.jsx
+ ├── main.jsx
+ ├── index.css
+ ├── assets/
+ │    └── Order_Placed_Success.mp4
+ ├── pages/
+ │    └── Home.jsx
+ ├── components/
+ │    ├── Header.jsx
+ │    ├── ProductList.jsx
+ │    ├── ProductItem.jsx
+ │    ├── Cart.jsx
+ │    ├── NotFound.jsx
+ │    └── ui/
+ │         └── Shimmer.jsx
+ └── redux/
+      ├── store.js
+      └── cartSlice.js
 ```
 
 ---
 
-## 🚀 Performance Optimizations
+## ▶️ Getting Started
 
-* Code splitting with **React.lazy**
-* Suspense fallback with shimmer loaders
-* Redux selectors for efficient re-renders
+### 1️⃣ Install dependencies
+```bash
+npm install
+```
+
+### 2️⃣ Start development server
+```bash
+npm run dev
+```
+
+### 3️⃣ Build production files
+```bash
+npm run build
+```
+
+### 4️⃣ Preview production build
+```bash
+npm run preview
+```
 
 ---
 
-## 👨‍💻 Author
+## 🌐 API Used
 
-**RAJITHLINGAM ANBUMANI**
----
-
-## 📜 License
-
-This project is licensed for educational purposes.
+```
+https://dummyjson.com/products
+```
 
 ---
