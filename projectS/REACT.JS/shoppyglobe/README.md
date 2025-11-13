@@ -125,15 +125,3 @@ https://dummyjson.com/products
 ```
 
 ---
-
-## 🎥 Order Success Animation
-
-Video file path:
-
-```
-src/assets/Order_Placed_Success.mp4
-```
-
-Used when user clicks **“Place your favourite order”** in the cart.
-
----
