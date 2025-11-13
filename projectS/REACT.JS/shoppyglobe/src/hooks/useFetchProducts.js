@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
 
-// Custom hook to fetch product list with simple sessionStorage cache
 export default function useFetchProducts() {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)

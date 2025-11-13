@@ -2,8 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-/* App globals */
-:root { color-scheme: light; }
-* { box-sizing: border-box; }
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
+/* Page background similar to mock */
+body {
+  background: radial-gradient(closest-side, rgba(245,247,250,0.9), rgba(228,233,238,0.95));
+  min-height: 100vh;
+}
+
+.card-bg {
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+  backdrop-filter: blur(6px);
+}
+
+/* soft shadow and radius */
+.shadow-xl {
+  box-shadow: 0 10px 30px rgba(20, 24, 40, 0.06);
+}
+.rounded-2xl {
+  border-radius: 18px;
+}
+
+/* clamp helper */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}

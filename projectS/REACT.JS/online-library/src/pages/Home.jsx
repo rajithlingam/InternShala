@@ -4,16 +4,11 @@ import { categories } from "../data/categories";
 import BookCard from "../components/BookCard";
 import { useMemo, useRef, useEffect } from "react";
 
-/**
- * Home.jsx — Category buttons as a horizontal carousel + Popular hero carousel
- * - Category buttons are a carousel with prev/next arrows and smooth scrolling
- * - Removed the lower "By Category" section
- */
-
 export default function Home() {
   const books = useSelector((s) => s.books.list || []);
   const popular = useMemo(
-    () => [...books].sort((a, b) => (b.rating || 0) - (a.rating || 0)).slice(0, 8),
+    () =>
+      [...books].sort((a, b) => (b.rating || 0) - (a.rating || 0)).slice(0, 8),
     [books]
   );
 
@@ -24,7 +19,8 @@ export default function Home() {
   // helper that scrolls by a number of cards (uses first card width)
   const scrollByCards = (el, multiplier = 2) => {
     if (!el) return;
-    const card = el.querySelector(".carousel-card") || el.querySelector(".category-pill");
+    const card =
+      el.querySelector(".carousel-card") || el.querySelector(".category-pill");
     const cardWidth = card ? card.offsetWidth : 280;
     const gap = 16;
     const amount = (cardWidth + gap) * multiplier;
@@ -60,12 +56,14 @@ export default function Home() {
 
   // jump to categories (scroll into view)
   const scrollToCategories = () => {
-    document.getElementById("categories-section")?.scrollIntoView({ behavior: "smooth" });
+    document
+      .getElementById("categories-section")
+      ?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <div className="p-4 md:p-6">
-      {/* Hero / Header */}
+      
       <div className="max-w-6xl mx-auto mb-8">
         <div className="relative rounded-xl overflow-hidden">
           <img
@@ -77,11 +75,13 @@ export default function Home() {
 
         <div className="flex items-center justify-between mt-4">
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold">Welcome to the Online Library</h1>
-            <p className="text-gray-600 mt-1">Explore books across multiple genres.</p>
+            <h1 className="text-2xl md:text-3xl font-bold">
+              Welcome to the Online Library
+            </h1>
+            <p className="text-gray-600 mt-1">
+              Explore books across multiple genres.
+            </p>
           </div>
-
-          
         </div>
       </div>
 
@@ -147,15 +147,16 @@ export default function Home() {
             className="flex gap-4 overflow-x-auto hide-scrollbar py-2 px-1"
             style={{ scrollSnapType: "x mandatory" }}
           >
-            {popular.length ? (
+            {popular.length ?
               popular.map((b) => (
-                <div key={b.id} className="carousel-card snap-center flex-shrink-0 w-64 md:w-72 lg:w-80">
+                <div
+                  key={b.id}
+                  className="carousel-card snap-center flex-shrink-0 w-64 md:w-72 lg:w-80"
+                >
                   <BookCard book={b} />
                 </div>
               ))
-            ) : (
-              <div className="text-gray-500 px-4">No popular books yet.</div>
-            )}
+            : <div className="text-gray-500 px-4">No popular books yet.</div>}
           </div>
 
           <button
