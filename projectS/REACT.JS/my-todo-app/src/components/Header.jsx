@@ -5,27 +5,30 @@ export default function Header({ addTask }) {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    addTask(text);
+    const trimmed = text.trim();
+    if (!trimmed) return;
+    addTask(trimmed);
     setText("");
   };
 
   return (
-    <header>
-      <h1 className="text-center text-blue-600 text-2xl font-bold mb-4">
-        Welcome to React ToDo List
-      </h1>
-      <form onSubmit={handleAdd} className="bg-yellow-300 p-4 rounded-lg shadow flex flex-col gap-2 sm:flex-row">
+    <header className="main-header">
+      <h1>Welcome to DOM ToDo List</h1>
+
+      <form
+        onSubmit={handleAdd}
+        className="container inputcol"
+        aria-label="Add task form"
+      >
         <textarea
-          className="resize-none h-10 p-2 text-red-600 font-bold rounded border border-gray-400 flex-1"
+          id="textarea"
           placeholder="Write your task here..."
           value={text}
           onChange={(e) => setText(e.target.value)}
-        />
-        <button
-          type="submit"
-          className="bg-yellow-400 text-green-700 font-bold px-4 py-2 rounded hover:bg-yellow-300"
-        >
-          Add Task
+        ></textarea>
+
+        <button id="buttoninput" type="submit">
+          <strong>Add Task</strong>
         </button>
       </form>
     </header>

@@ -2,35 +2,44 @@ import React from "react";
 
 export default function ToDoItem({ task, markDone, markNotDone, deleteTask }) {
   return (
-    <div className="bg-white p-4 rounded-lg shadow flex flex-wrap sm:flex-nowrap justify-between items-center gap-3 hover:scale-[1.02] transition-transform">
-      <span className="flex-1 text-orange-600 break-words text-lg">{task.text}</span>
+    <div className="record-item-container" role="listitem">
+      <span className="record-list">{task.text}</span>
 
-      {task.status === "done" && <p className="text-green-600 font-bold">Task Completed</p>}
-      {task.status === "not-done" && <p className="text-red-600 font-bold">Task Not Completed</p>}
+      <span className="record-but">
+        {/* If pending show action buttons, else show status text */}
+        {task.status === "pending" ? (
+          <>
+            <button
+              className="record-but-check"
+              onClick={() => markDone(task.id)}
+              aria-label="mark done"
+            >
+              ✔
+            </button>
+            <button
+              className="record-but-cross"
+              onClick={() => markNotDone(task.id)}
+              aria-label="mark not done"
+            >
+              &#10540;
+            </button>
+          </>
+        ) : task.status === "done" ? (
+          <p className="done">Task Completed</p>
+        ) : (
+          <p className="not-done">Task Not Completed</p>
+        )}
+      </span>
 
-      {task.status === "pending" && (
-        <div className="flex gap-2">
-          <button
-            onClick={() => markDone(task.id)}
-            className="text-green-600 text-2xl hover:scale-125 transition-transform"
-          >
-            ✔
-          </button>
-          <button
-            onClick={() => markNotDone(task.id)}
-            className="text-red-600 text-2xl hover:scale-125 transition-transform"
-          >
-            ✘
-          </button>
-        </div>
-      )}
-
-      <button
-        onClick={() => deleteTask(task.id)}
-        className="text-red-600 text-2xl hover:scale-125 transition-transform"
-      >
-        🗑
-      </button>
+      <span className="delete-btn">
+        <button
+          className="record-but-delete"
+          onClick={() => deleteTask(task.id)}
+          aria-label="delete task"
+        >
+          &#9940;
+        </button>
+      </span>
     </div>
   );
 }

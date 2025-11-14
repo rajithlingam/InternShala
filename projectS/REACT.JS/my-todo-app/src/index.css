@@ -1,1 +1,176 @@
-@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.main {
+  width: 100%;
+  max-width: 600px;
+  margin-top: 2rem;
+}
+
+h1 {
+  color: blue;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+/* container & input column reuse */
+.container {
+  background-color: rgb(0, 183, 255);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.inputcol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+#textarea {
+  resize: none;
+  height: 2.5rem;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #999;
+  color: red;
+  font-weight: bold;
+  width: 100%;
+}
+
+#buttoninput {
+  background-color: gold;
+  color: green;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+#buttoninput:hover {
+  background-color: yellow;
+}
+
+.record {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.record-item-container {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.record-item-container:hover {
+  transform: scale(1.04);
+}
+
+.record-list {
+  flex: 1 1 100%;
+  font-size: 1.2rem;
+  color: orangered;
+  word-break: break-word;
+}
+
+.record-but,
+.delete-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.record-but-check,
+.record-but-cross,
+.record-but-delete {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.record-but-check {
+  color: green;
+}
+
+.record-but-check:hover {
+  transform: scale(1.4);
+}
+
+.record-but-cross {
+  color: red;
+}
+
+.record-but-cross:hover {
+  transform: scale(1.4);
+}
+
+.record-but-delete {
+  color: red;
+}
+
+.record-but-delete:hover {
+  transform: scale(1.4);
+}
+
+.done {
+  color: green;
+  font-weight: bold;
+}
+
+.not-done {
+  color: red;
+  font-weight: bold;
+}
+
+@media (min-width: 600px) {
+  .inputcol {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  #textarea {
+    flex: 1;
+  }
+
+  #buttoninput {
+    width: 150px;
+  }
+
+  .record-item-container {
+    flex-wrap: nowrap;
+  }
+
+  .record-list {
+    flex: 1;
+  }
+}
