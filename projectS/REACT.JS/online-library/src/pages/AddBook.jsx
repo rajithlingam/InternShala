@@ -6,13 +6,19 @@ import { categories } from "../data/categories";
 
 export default function AddBook() {
   const [form, setForm] = useState({
-    title: "", author: "", category: categories[0], description: "", rating: "", imageUrl: ""
+    title: "",
+    author: "",
+    category: categories[0],
+    description: "",
+    rating: "",
+    imageUrl: "",
   });
   const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const onChange = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+  const onChange = (k) => (e) =>
+    setForm((f) => ({ ...f, [k]: e.target.value }));
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,15 +42,58 @@ export default function AddBook() {
       {error && <p className="text-red-600 mb-3">{error}</p>}
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        <input className="border p-2 w-full rounded" placeholder="Title" value={form.title} onChange={onChange("title")} />
-        <input className="border p-2 w-full rounded" placeholder="Author" value={form.author} onChange={onChange("author")} />
-        <select className="border p-2 w-full rounded" value={form.category} onChange={onChange("category")}>
-          {categories.map((c) => <option key={c} value={c}>{c}</option>)}
+        <input
+          className="border p-2 w-full rounded"
+          placeholder="Title"
+          value={form.title}
+          onChange={onChange("title")}
+        />
+        <input
+          className="border p-2 w-full rounded"
+          placeholder="Author"
+          value={form.author}
+          onChange={onChange("author")}
+        />
+        <select
+          className="border p-2 w-full rounded"
+          value={form.category}
+          onChange={onChange("category")}
+        >
+          {categories.map((c) => (
+            <option key={c} value={c}>
+              {c}
+            </option>
+          ))}
         </select>
-        <textarea className="border p-2 w-full rounded min-h-28" placeholder="Description" value={form.description} onChange={onChange("description")} />
-        <input type="number" step="0.1" min="0" max="5" className="border p-2 w-full rounded" placeholder="Rating (0–5)" value={form.rating} onChange={onChange("rating")} />
-        <input type="url" className="border p-2 w-full rounded" placeholder="Image URL (optional)" value={form.imageUrl} onChange={onChange("imageUrl")} />
-        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded w-full sm:w-auto">Add Book</button>
+        <textarea
+          className="border p-2 w-full rounded min-h-28"
+          placeholder="Description"
+          value={form.description}
+          onChange={onChange("description")}
+        />
+        <input
+          type="number"
+          step="0.1"
+          min="0"
+          max="5"
+          className="border p-2 w-full rounded"
+          placeholder="Rating (0–5)"
+          value={form.rating}
+          onChange={onChange("rating")}
+        />
+        <input
+          type="url"
+          className="border p-2 w-full rounded"
+          placeholder="Image URL (optional)"
+          value={form.imageUrl}
+          onChange={onChange("imageUrl")}
+        />
+        <button
+          type="submit"
+          className="bg-blue-600 text-white px-4 py-2 rounded w-full sm:w-auto"
+        >
+          Add Book
+        </button>
       </form>
     </div>
   );

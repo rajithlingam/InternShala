@@ -63,7 +63,6 @@ export default function Home() {
 
   return (
     <div className="p-4 md:p-6">
-      
       <div className="max-w-6xl mx-auto mb-8">
         <div className="relative rounded-xl overflow-hidden">
           <img

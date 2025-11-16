@@ -1,5 +1,3 @@
-<!-- https://rajithlingam.github.io/InternShala/CSS/TailWindCSS/portfolio_RL/src/index.html -->
-
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
@@ -40,9 +38,67 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+
+    <!-- Carousel helper CSS (paste into head, minimal, non-invasive) -->
+    <style>
+      /* minimal helpers for the JS-created carousels */
+      .carousel-track {
+        display: flex;
+        gap: 1rem; /* preserve spacing between cards */
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        padding-bottom: 6px; /* prevent clipping of shadows on some browsers */
+      }
+      .carousel-item {
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        /* width rules are permissive — script will set widths for responsivity */
+      }
+      .carousel-controls {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0.75rem;
+      }
+      .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 9999px;
+        background: rgba(148, 163, 184, 0.6); /* gray-400 */
+        border: none;
+        padding: 0;
+        cursor: pointer;
+      }
+      .carousel-dot[aria-current="true"] {
+        background: #16a34a; /* green-600 */
+      }
+      .carousel-nav-btn {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 9999px;
+        border: 0;
+        padding: 6px 10px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      .carousel-nav-btn:focus {
+        outline: 2px solid rgba(34, 197, 94, 0.25);
+        outline-offset: 2px;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        height: 8px;
+      }
+      .hide-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(100, 100, 100, 0.18);
+        border-radius: 9999px;
+      }
+    </style>
   </head>
 
   <body class="bg-yellow-300 dark:bg-blue-950 transition-colors duration-500">
+    <!-- header -->
     <header
       class="group w-[97%] sticky top-0 z-50 mx-auto flex flex-wrap justify-between items-center px-8 py-2 mt-3 shadow-xl rounded-lg bg-sky-300 hover:bg-pink-600 dark:bg-violet-900 dark:text-yellow-200 dark:hover:bg-black transition-all duration-300"
     >
@@ -135,7 +191,7 @@
         </button>
       </nav>
     </header>
-
+    <!-- home -->
     <section
       id="home"
       class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 px-4 py-12 text-center md:text-left bg-yellow-300 dark:bg-blue-950 transition-colors duration-500"
@@ -217,7 +273,7 @@
         </a>
       </div>
     </section>
-
+    <!-- about -->
     <section
       id="about"
       class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 px-4 py-12 bg-white dark:bg-gray-900 text-center md:text-left transition-colors duration-500"
@@ -253,7 +309,7 @@
         />
       </div>
     </section>
-
+    <!-- skills -->
     <section
       id="skills"
       class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-yellow-300 dark:bg-blue-950 text-center transition-colors duration-500"
@@ -422,7 +478,7 @@
         </div>
       </div>
     </section>
-
+    <!-- services -->
     <section
       id="services"
       class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-white dark:bg-gray-900 text-center transition-colors duration-500"
@@ -533,7 +589,7 @@
         </div>
       </div>
     </section>
-<!-- Certifications -->
+    <!-- Certifications -->
     <section
       id="certifications"
       class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-yellow-300 dark:bg-blue-950 text-center transition-colors duration-500"
@@ -625,6 +681,7 @@
       </div>
     </section>
 
+    <!-- projects -->
     <section
       id="projects"
       class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-white dark:bg-gray-900 text-center transition-colors duration-500"
@@ -771,6 +828,242 @@
       } else {
         htmlElement.classList.remove("dark");
       }
+    </script>
+
+    <!-- Vanilla carousel enabler (paste before closing body) -->
+    <script>
+      (function () {
+        const sections = [
+          { id: "skills" },
+          { id: "services" },
+          { id: "certifications" },
+          { id: "projects" },
+        ];
+
+        function itemWidthFor(container) {
+          const w = container.clientWidth || window.innerWidth;
+          if (w < 640) return Math.floor(w * 0.86);
+          if (w < 1024) return Math.floor(w * 0.48);
+          return Math.floor(w * 0.3);
+        }
+
+        function makeCarousel(sectionEl) {
+          if (!sectionEl) return;
+          let container = Array.from(sectionEl.children).find((c) => {
+            return (
+              c.children &&
+              c.children.length > 0 &&
+              !c.matches("h2, h1, header, footer")
+            );
+          });
+          if (!container) return;
+          if (container.classList.contains("carousel-track")) return;
+
+          const track = document.createElement("div");
+          track.className = "carousel-track hide-scrollbar";
+          track.setAttribute("tabindex", "0");
+          track.setAttribute("role", "list");
+
+          const nodes = Array.from(container.children);
+          nodes.forEach((node) => {
+            const item = document.createElement("div");
+            item.className = "carousel-item";
+            if (node.className) {
+              item.className += " " + node.className;
+              item.className = item.className
+                .replace(/\bgrid\b/g, "")
+                .replace(/\bgrid-cols-[^\s]*\b/g, "");
+            }
+            item.appendChild(node.cloneNode(true));
+            track.appendChild(item);
+            node.remove();
+          });
+
+          container.innerHTML = "";
+          container.appendChild(track);
+
+          function applyWidths() {
+            const iw = itemWidthFor(track);
+            Array.from(track.children).forEach((it) => {
+              it.style.width = iw + "px";
+            });
+          }
+          applyWidths();
+          window.addEventListener("resize", () => {
+            applyWidths();
+          });
+
+          const controlsWrap = document.createElement("div");
+          controlsWrap.className = "carousel-controls";
+
+          const prevBtn = document.createElement("button");
+          prevBtn.className = "carousel-nav-btn";
+          prevBtn.innerText = "‹";
+          prevBtn.setAttribute("aria-label", "Previous slide");
+
+          const nextBtn = document.createElement("button");
+          nextBtn.className = "carousel-nav-btn";
+          nextBtn.innerText = "›";
+          nextBtn.setAttribute("aria-label", "Next slide");
+
+          const dots = document.createElement("div");
+          dots.className = "dots-wrap";
+          dots.setAttribute("role", "tablist");
+          dots.setAttribute("aria-hidden", "false");
+
+          controlsWrap.appendChild(prevBtn);
+          controlsWrap.appendChild(dots);
+          controlsWrap.appendChild(nextBtn);
+
+          container.appendChild(controlsWrap);
+
+          const items = Array.from(track.children);
+          function createDots() {
+            dots.innerHTML = "";
+            items.forEach((_, i) => {
+              const d = document.createElement("button");
+              d.className = "carousel-dot";
+              d.type = "button";
+              d.setAttribute("aria-label", "Go to slide " + (i + 1));
+              if (i === 0) d.setAttribute("aria-current", "true");
+              d.addEventListener("click", () => {
+                scrollToIndex(i);
+              });
+              dots.appendChild(d);
+            });
+          }
+          createDots();
+
+          let activeIndex = 0;
+          function updateDots() {
+            const ds = Array.from(dots.children);
+            ds.forEach((dot, i) =>
+              dot.setAttribute(
+                "aria-current",
+                i === activeIndex ? "true" : "false"
+              )
+            );
+          }
+
+          function scrollToIndex(i) {
+            i = Math.max(0, Math.min(items.length - 1, i));
+            const el = items[i];
+            if (!el) return;
+            track.scrollTo({
+              left: el.offsetLeft - track.offsetLeft,
+              behavior: "smooth",
+            });
+            activeIndex = i;
+            updateDots();
+          }
+
+          prevBtn.addEventListener("click", () =>
+            scrollToIndex(activeIndex - 1)
+          );
+          nextBtn.addEventListener("click", () =>
+            scrollToIndex(activeIndex + 1)
+          );
+
+          let raf = null;
+          track.addEventListener(
+            "scroll",
+            () => {
+              if (raf) cancelAnimationFrame(raf);
+              raf = requestAnimationFrame(() => {
+                const left = track.scrollLeft;
+                let closest = 0,
+                  closestDiff = Infinity;
+                items.forEach((it, idx) => {
+                  const diff = Math.abs(
+                    it.offsetLeft - track.offsetLeft - left
+                  );
+                  if (diff < closestDiff) {
+                    closestDiff = diff;
+                    closest = idx;
+                  }
+                });
+                if (closest !== activeIndex) {
+                  activeIndex = closest;
+                  updateDots();
+                }
+              });
+            },
+            { passive: true }
+          );
+
+          let isDown = false,
+            startX = 0,
+            scrollStart = 0;
+          track.addEventListener("pointerdown", (e) => {
+            isDown = true;
+            startX = e.clientX;
+            scrollStart = track.scrollLeft;
+            track.setPointerCapture?.(e.pointerId);
+          });
+          track.addEventListener("pointermove", (e) => {
+            if (!isDown) return;
+            const dx = startX - e.clientX;
+            track.scrollLeft = scrollStart + dx;
+          });
+          ["pointerup", "pointercancel", "pointerleave"].forEach((evt) => {
+            track.addEventListener(evt, (e) => {
+              isDown = false;
+              try {
+                track.releasePointerCapture?.(e.pointerId);
+              } catch (e) {}
+            });
+          });
+
+          container.addEventListener("focusin", (e) => {
+            container._focusedInside = true;
+          });
+          container.addEventListener("focusout", (e) => {
+            container._focusedInside = false;
+          });
+
+          track._scrollToIndex = scrollToIndex;
+          track._prevBtn = prevBtn;
+          track._nextBtn = nextBtn;
+          track._items = items;
+
+          track.setAttribute(
+            "aria-label",
+            (sectionEl.id || "carousel") + " carousel"
+          );
+
+          return track;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const createdTracks = [];
+          sections.forEach((s) => {
+            const el = document.getElementById(s.id);
+            if (!el) return;
+            const track = makeCarousel(el);
+            if (track) createdTracks.push(track);
+          });
+
+          document.addEventListener(
+            "keydown",
+            (e) => {
+              if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+              const active = document.activeElement;
+              if (!active) return;
+              const track = active.closest(".carousel-track");
+              if (!track) return;
+              if (e.key === "ArrowLeft") {
+                const prev = track._prevBtn;
+                if (prev) prev.click();
+              }
+              if (e.key === "ArrowRight") {
+                const next = track._nextBtn;
+                if (next) next.click();
+              }
+            },
+            { passive: true }
+          );
+        });
+      })();
     </script>
   </body>
 </html>
