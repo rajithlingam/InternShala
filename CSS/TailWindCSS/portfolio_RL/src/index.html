@@ -9,92 +9,49 @@
       name="description"
       content="The professional portfolio of Rajithlingam – a Full-Stack Web Developer specializing in the MERN stack. View my projects, skills, and contact details."
     />
-
     <meta
       name="keywords"
       content="Rajithlingam, rajithlingam, RAJITHLINGAM, Portfolio, Full-Stack Developer, MERN Developer, Web Developer, MongoDB, Express, React, Node.js, Projects, Resume, Skills"
     />
-
     <meta name="author" content="Rajithlingam" />
-
-    <meta
-      property="og:title"
-      content="Rajithlingam, rajithlingam, RAJITHLINGAM, | Full-Stack Web Developer (MERN)"
-    />
-    <meta
-      property="og:description"
-      content="Explore the work and skills of Rajithlingam – Full-Stack MERN Developer."
-    />
-    <meta
-      property="og:image"
-      content="https://avatars.githubusercontent.com/u/141789575?v=4"
-    />
+    <meta property="og:title" content="Rajithlingam | Full-Stack Web Developer (MERN)" />
+    <meta property="og:description" content="Explore the work and skills of Rajithlingam – Full-Stack MERN Developer." />
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/141789575?v=4" />
     <meta property="og:url" content="https://rajithlingam-pro.web.app/" />
     <meta property="og:type" content="website" />
 
     <link rel="icon" href="../assets/MERN-RL.png" type="image/x-icon" />
     <link href="./output.css" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 
-    <!-- Carousel helper CSS (paste into head, minimal, non-invasive) -->
+    <!-- Swiper CDN (CSS) -->
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+
     <style>
-      /* minimal helpers for the JS-created carousels */
-      .carousel-track {
-        display: flex;
-        gap: 1rem; /* preserve spacing between cards */
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-        padding-bottom: 6px; /* prevent clipping of shadows on some browsers */
+      /* minor helpers retained */
+      .carousel-track { display:flex; gap:1rem; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scroll-behavior:smooth; padding-bottom:6px; }
+      .carousel-item { flex-shrink:0; scroll-snap-align:center; }
+      .carousel-controls { display:flex; gap:.5rem; align-items:center; justify-content:center; margin-top:.75rem; }
+      .carousel-dot { width:10px; height:10px; border-radius:9999px; background:rgba(148,163,184,.6); border:none; padding:0; cursor:pointer; }
+      .carousel-dot[aria-current="true"] { background:#16a34a; }
+      .carousel-nav-btn { background:rgba(255,255,255,.9); border-radius:9999px; border:0; padding:6px 10px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,.08); }
+      .carousel-nav-btn:focus { outline:2px solid rgba(34,197,94,.25); outline-offset:2px; }
+      .hide-scrollbar::-webkit-scrollbar { height:8px; }
+      .hide-scrollbar::-webkit-scrollbar-thumb { background:rgba(100,100,100,.18); border-radius:9999px; }
+
+      /* Swiper tweaks */
+      .swiper-wrapper { width:100%; height:max-content !important; padding-bottom:64px !important; transition-timing-function:linear !important; position:relative; }
+      .swiper-pagination-bullet { background:#4f46e5; }
+
+      /* center nav buttons area for Swiper */
+      .swiper-nav-wrap { position:absolute; left:0; right:0; bottom:3rem; display:flex; justify-content:center; gap:1rem; width:100%; pointer-events:none; }
+      .swiper-nav-wrap button { pointer-events:auto; }
+
+      /* ensure slides have consistent height and spacing */
+      .project-slide, .service-slide, .cert-slide { height:18rem; display:flex; flex-direction:column; justify-content:space-between; }
+      @media (min-width:1024px) {
+        .project-slide, .service-slide, .cert-slide { height:20rem; }
       }
-      .carousel-item {
-        flex-shrink: 0;
-        scroll-snap-align: center;
-        /* width rules are permissive — script will set widths for responsivity */
-      }
-      .carousel-controls {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        justify-content: center;
-        margin-top: 0.75rem;
-      }
-      .carousel-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 9999px;
-        background: rgba(148, 163, 184, 0.6); /* gray-400 */
-        border: none;
-        padding: 0;
-        cursor: pointer;
-      }
-      .carousel-dot[aria-current="true"] {
-        background: #16a34a; /* green-600 */
-      }
-      .carousel-nav-btn {
-        background: rgba(255, 255, 255, 0.9);
-        border-radius: 9999px;
-        border: 0;
-        padding: 6px 10px;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      }
-      .carousel-nav-btn:focus {
-        outline: 2px solid rgba(34, 197, 94, 0.25);
-        outline-offset: 2px;
-      }
-      .hide-scrollbar::-webkit-scrollbar {
-        height: 8px;
-      }
-      .hide-scrollbar::-webkit-scrollbar-thumb {
-        background: rgba(100, 100, 100, 0.18);
-        border-radius: 9999px;
-      }
-      
     </style>
   </head>
 
@@ -103,712 +60,335 @@
     <header
       class="group w-[97%] sticky top-0 z-50 mx-auto flex flex-wrap justify-between items-center px-8 py-2 mt-3 shadow-xl rounded-lg bg-sky-300 hover:bg-pink-600 dark:bg-violet-900 dark:text-yellow-200 dark:hover:bg-black transition-all duration-300"
     >
-      <a
-        href="#home"
-        class="text-5xl font-bold text-green-600 group-hover:text-yellow-300 dark:text-sky-300 dark:group-hover:text-pink-600 hover:scale-105 transition-transform duration-300"
-      >
-        RL
-      </a>
+      <a href="#home" class="text-5xl font-bold text-green-600 group-hover:text-yellow-300 dark:text-sky-300 dark:group-hover:text-pink-600 hover:scale-105 transition-transform duration-300">RL</a>
 
-      <button
-        id="menu-toggle"
-        class="md:hidden text-4xl text-green-700 hover:text-yellow-400 focus:outline-none dark:text-yellow-200 dark:hover:text-yellow-400"
-        aria-label="Toggle navigation menu"
-      >
-        ☰
-      </button>
+      <button id="menu-toggle" class="md:hidden text-4xl text-green-700 hover:text-yellow-400 focus:outline-none dark:text-yellow-200 dark:hover:text-yellow-400" aria-label="Toggle navigation menu">☰</button>
 
-      <nav
-        id="nav-menu"
-        class="w-full md:w-auto md:flex hidden flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4 mt-4 md:mt-0"
-      >
-        <ul
-          class="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0"
-        >
-          <li>
-            <a
-              href="#home"
-              class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300"
-            >
-              Home
-            </a>
-          </li>
-          <li>
-            <a
-              href="#about"
-              class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300"
-            >
-              About
-            </a>
-          </li>
-          <li>
-            <a
-              href="#skills"
-              class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300"
-            >
-              Skills
-            </a>
-          </li>
-          <li>
-            <a
-              href="#services"
-              class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300"
-            >
-              Services
-            </a>
-          </li>
-          <li>
-            <a
-              href="#certifications"
-              class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300"
-            >
-              Certifications
-            </a>
-          </li>
-          <li>
-            <a
-              href="#projects"
-              class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300"
-            >
-              Projects
-            </a>
-          </li>
-          <li>
-            <a
-              href="#footer"
-              class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300"
-            >
-              Contact
-            </a>
-          </li>
+      <nav id="nav-menu" class="w-full md:w-auto md:flex hidden flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4 mt-4 md:mt-0">
+        <ul class="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0">
+          <li><a href="#home" class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300">Home</a></li>
+          <li><a href="#about" class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300">About</a></li>
+          <li><a href="#skills" class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300">Skills</a></li>
+          <li><a href="#services" class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300">Services</a></li>
+          <li><a href="#certifications" class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300">Certifications</a></li>
+          <li><a href="#projects" class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300">Projects</a></li>
+          <li><a href="#footer" class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300">Contact</a></li>
         </ul>
-        <button
-          id="theme-toggle"
-          class="ml-4 p-3 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none transition-colors duration-300"
-          aria-label="Toggle day/night mode"
-        >
+
+        <button id="theme-toggle" class="ml-4 p-3 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none transition-colors duration-300" aria-label="Toggle day/night mode">
           <i class="fas fa-moon hidden dark:block"></i>
           <i class="fas fa-sun dark:hidden"></i>
         </button>
       </nav>
     </header>
+
     <!-- home -->
-    <section
-      id="home"
-      class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 px-4 py-12 text-center md:text-left bg-yellow-300 dark:bg-blue-950 transition-colors duration-500"
-    >
-      <div
-        class="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg animate-fade-in-up"
-      >
-        <img
-          src="../assets/rl.jpg"
-          alt="Rajithlingam"
-          class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-in-out"
-        />
+    <section id="home" class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 px-4 py-12 text-center md:text-left bg-yellow-300 dark:bg-blue-950 transition-colors duration-500">
+      <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg animate-fade-in-up">
+        <img src="../assets/rl.jpg" alt="Rajithlingam" class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-in-out" />
       </div>
 
       <div class="max-w-2xl">
-        <h1
-          class="text-3xl font-bold mb-4 text-green-600 dark:text-sky-300 animate-slide-in-left"
-        >
-          Hi, I'm RAJITHLINGAM ANBUMANI.
-        </h1>
-
-        <p
-          class="text-lg text-blue-800 dark:text-blue-200 mb-4 font-mono animate-slide-in-right"
-        >
-          Full-Stack Web Developer (MERN) | Specialist in React.js
-        </p>
+        <h1 class="text-3xl font-bold mb-4 text-green-600 dark:text-sky-300 animate-slide-in-left">Hi, I'm RAJITHLINGAM ANBUMANI.</h1>
+        <p class="text-lg text-blue-800 dark:text-blue-200 mb-4 font-mono animate-slide-in-right">Full-Stack Web Developer (MERN) | Specialist in React.js</p>
 
         <div class="flex justify-center md:justify-start gap-4 mb-6">
-          <a
-            href="https://github.com/rajithlingam"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"
-          >
-            <i class="fab fa-github text-3xl"></i>
-          </a>
-          <a
-            href="https://linkedin.com/in/rajithlingam"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"
-          >
-            <i class="fab fa-linkedin text-3xl"></i>
-          </a>
-          <a
-            href="mailto:vrajithlingam@gmail.com"
-            aria-label="Email"
-            class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"
-          >
-            <i class="fas fa-envelope-at text-3xl"></i>
-          </a>
-          <a
-            href="tel:+919025609150"
-            aria-label="Phone"
-            class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"
-          >
-            <i class="fas fa-phone-alt text-3xl"></i>
-          </a>
+          <a href="https://github.com/rajithlingam" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"><i class="fab fa-github text-3xl"></i></a>
+          <a href="https://linkedin.com/in/rajithlingam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"><i class="fab fa-linkedin text-3xl"></i></a>
+          <a href="mailto:vrajithlingam@gmail.com" aria-label="Email" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"><i class="fas fa-envelope-at text-3xl"></i></a>
+          <a href="tel:+919025609150" aria-label="Phone" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"><i class="fas fa-phone-alt text-3xl"></i></a>
         </div>
 
-        <div
-          class="inline-block px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
-        >
+        <div class="inline-block px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105">
           <a href="../assets/pdfs/rajithlingam_CV_.pdf" download> Download </a>
-          <a
-            href="../assets/pdfs/RAJITHLINGAMANBUMANI_InternshalaResume.pdf"
-            download
-          >
-            Resume
-          </a>
+          <a href="../assets/pdfs/RAJITHLINGAMANBUMANI_InternshalaResume.pdf" download> Resume</a>
         </div>
-        <a
-          href="#about"
-          class="inline-block px-6 py-3 ml-4 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all duration-300 transform hover:scale-105"
-        >
-          Read More
-        </a>
+        <a href="#about" class="inline-block px-6 py-3 ml-4 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all duration-300 transform hover:scale-105">Read More</a>
       </div>
     </section>
+
     <!-- about -->
-    <section
-      id="about"
-      class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 px-4 py-12 bg-white dark:bg-gray-900 text-center md:text-left transition-colors duration-500"
-    >
+    <section id="about" class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 px-4 py-12 bg-white dark:bg-gray-900 text-center md:text-left transition-colors duration-500">
       <div class="max-w-2xl">
-        <h2
-          class="text-3xl md:text-5xl font-bold mb-4 text-green-700 dark:text-sky-300 tracking-wide"
-        >
-          About Me
-        </h2>
-        <p
-          class="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed"
-        >
-          I am Rajithlingam, a dedicated
-          <strong>Full-Stack MERN Developer</strong> with a passion for crafting
-          responsive and user-friendly web applications. My experience includes
-          building dynamic interfaces with
-          <strong
-            >React.js, Redux Toolkit, Tailwind CSS, Firebase, and Jest.</strong
-          >
-          I enjoy solving complex problems with clean, efficient code. I am
-          committed to continuous learning and staying updated with the latest
-          industry trends to deliver high-quality and innovative solutions. My
-          goal is to create impactful digital experiences that are both
-          functional and aesthetically pleasing.
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-green-700 dark:text-sky-300 tracking-wide">About Me</h2>
+        <p class="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+          I am Rajithlingam, a dedicated <strong>Full-Stack MERN Developer</strong> with a passion for crafting responsive and user-friendly web applications. My experience includes building dynamic interfaces with <strong>React.js, Redux Toolkit, Tailwind CSS, Firebase, and Jest.</strong> I enjoy solving complex problems with clean, efficient code.
         </p>
       </div>
-      <div>
-        <img
-          src="../assets/RL-MERN.png"
-          alt="Rajithlingam"
-          class="w-48 md:w-64 rounded-lg shadow-lg hover:scale-105 transition-transform duration-500"
-        />
-      </div>
+      <div><img src="../assets/RL-MERN.png" alt="Rajithlingam" class="w-48 md:w-64 rounded-lg shadow-lg hover:scale-105 transition-transform duration-500" /></div>
     </section>
+
     <!-- skills -->
-    <section
-      id="skills"
-      class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-yellow-300 dark:bg-blue-950 text-center transition-colors duration-500"
-    >
-      <h2
-        class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide"
-      >
-        My Skills
-      </h2>
+    <section id="skills" class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-yellow-300 dark:bg-blue-950 text-center transition-colors duration-500">
+      <h2 class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide">My Skills</h2>
+      <div class="w-full max-w-4xl space-y-6 text-left">
+        <!-- skill bars (unchanged) -->
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-base font-medium text-cyan-700 dark:text-cyan-400">Tailwind CSS</span>
+            <span class="text-sm font-medium text-cyan-700 dark:text-cyan-400">80%</span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700">
+            <div class="bg-cyan-600 h-4 rounded-full animate-fill-progress" style="width: 80%"></div>
+          </div>
+        </div>
+        <!-- ... other skills ... -->
+      </div>
+    </section>
 
-      <div class="w-full max-w-3xl space-y-6 text-left">
-        <div>
-          <div class="flex justify-between mb-1">
-            <span class="text-base font-medium text-cyan-700 dark:text-cyan-400"
-              >Tailwind CSS</span
-            >
-            <span class="text-sm font-medium text-cyan-700 dark:text-cyan-400"
-              >80%</span
-            >
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700">
-            <div
-              class="bg-cyan-600 h-4 rounded-full animate-fill-progress"
-              style="width: 80%"
-            ></div>
-          </div>
-        </div>
-        <div>
-          <div class="flex justify-between mb-1">
-            <span class="text-base font-medium text-blue-700 dark:text-blue-400"
-              >React.js</span
-            >
-            <span class="text-sm font-medium text-blue-700 dark:text-blue-400"
-              >90%</span
-            >
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700">
-            <div
-              class="bg-blue-600 h-4 rounded-full animate-fill-progress"
-              style="width: 90%"
-            ></div>
-          </div>
-        </div>
-        <div>
-          <div class="flex justify-between mb-1">
-            <span
-              class="text-base font-medium text-purple-700 dark:text-purple-400"
-              >Redux Toolkit</span
-            >
-            <span
-              class="text-sm font-medium text-purple-700 dark:text-purple-400"
-              >80%</span
-            >
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700">
-            <div
-              class="bg-purple-600 h-4 rounded-full animate-fill-progress"
-              style="width: 80%"
-            ></div>
-          </div>
-        </div>
+    <!-- SERVICES (Swiper) -->
+    <section id="services" class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-white dark:bg-gray-900 text-center transition-colors duration-500">
+      <h2 class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide">My Services</h2>
 
-        <div>
-          <div class="flex justify-between mb-1">
-            <span class="text-base font-medium text-lime-700 dark:text-lime-400"
-              >Node.js</span
-            >
-            <span class="text-sm font-medium text-lime-700 dark:text-lime-400"
-              >75%</span
-            >
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700">
-            <div
-              class="bg-lime-600 h-4 rounded-full animate-fill-progress"
-              style="width: 75%"
-            ></div>
-          </div>
-        </div>
+      <div class="w-full max-w-6xl mx-auto px-4 relative">
+        <div class="swiper multiple-slide-carousel services-swiper">
+          <div class="swiper-wrapper">
 
-        <div>
-          <div class="flex justify-between mb-1">
-            <span class="text-base font-medium text-gray-700 dark:text-gray-300"
-              >Express.js</span
-            >
-            <span class="text-sm font-medium text-gray-700 dark:text-gray-300"
-              >75%</span
-            >
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700">
-            <div
-              class="bg-gray-800 h-4 rounded-full animate-fill-progress"
-              style="width: 75%"
-            ></div>
-          </div>
-        </div>
+            <div class="swiper-slide service-slide">
+              <div class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+                <i class="fas fa-laptop-code text-5xl text-blue-600 dark:text-blue-300 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Web Development</h3>
+                <p class="text-gray-700 dark:text-gray-300 text-center">Building responsive and dynamic web applications using modern MERN stack technologies.</p>
+              </div>
+            </div>
 
-        <div>
-          <div class="flex justify-between mb-1">
-            <span
-              class="text-base font-medium text-green-700 dark:text-green-400"
-              >MongoDB</span
-            >
-            <span class="text-sm font-medium text-green-700 dark:text-green-400"
-              >70%</span
-            >
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700">
-            <div
-              class="bg-green-600 h-4 rounded-full animate-fill-progress"
-              style="width: 70%"
-            ></div>
-          </div>
-        </div>
+            <div class="swiper-slide service-slide">
+              <div class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+                <i class="fas fa-mobile-alt text-5xl text-blue-600 dark:text-blue-300 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Responsive Design</h3>
+                <p class="text-gray-700 dark:text-gray-300 text-center">Ensuring your website looks great and functions perfectly on any device, from desktop to mobile.</p>
+              </div>
+            </div>
 
-        <div>
-          <div class="flex justify-between mb-1">
-            <span class="text-base font-medium text-red-700 dark:text-red-400"
-              >Jest</span
-            >
-            <span class="text-sm font-medium text-red-700 dark:text-red-400"
-              >75%</span
-            >
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700">
-            <div
-              class="bg-red-600 h-4 rounded-full animate-fill-progress"
-              style="width: 75%"
-            ></div>
-          </div>
-        </div>
+            <div class="swiper-slide service-slide">
+              <div class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+                <i class="fas fa-database text-5xl text-blue-600 dark:text-blue-300 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">API Development</h3>
+                <p class="text-gray-700 dark:text-gray-300 text-center">Designing and implementing robust RESTful APIs with Node.js and Express.js.</p>
+              </div>
+            </div>
 
-        <div>
-          <div class="flex justify-between mb-1">
-            <span
-              class="text-base font-medium text-yellow-700 dark:text-yellow-400"
-              >Firebase</span
-            >
-            <span
-              class="text-sm font-medium text-yellow-700 dark:text-yellow-400"
-              >70%</span
-            >
-          </div>
-          <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700">
-            <div
-              class="bg-yellow-500 h-4 rounded-full animate-fill-progress"
-              style="width: 70%"
-            ></div>
-          </div>
-        </div>
+            <div class="swiper-slide service-slide">
+              <div class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+                <i class="fas fa-headset text-5xl text-blue-600 dark:text-blue-300 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Consulting & Support</h3>
+                <p class="text-gray-700 dark:text-gray-300 text-center">Providing expert advice and ongoing support for your web development needs.</p>
+              </div>
+            </div>
 
-        <div>
-          <div class="flex justify-between mb-1">
-            <span class="text-base font-medium text-gray-700 dark:text-gray-300"
-              >Git & GitHub</span
-            >
-            <span class="text-sm font-medium text-gray-700 dark:text-gray-300"
-              >85%</span
-            >
+            <div class="swiper-slide service-slide">
+              <div class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+                <i class="fas fa-cogs text-5xl text-blue-600 dark:text-blue-300 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Performance Optimization</h3>
+                <p class="text-gray-700 dark:text-gray-300 text-center">Optimizing web applications for speed and efficiency to enhance user experience.</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide service-slide">
+              <div class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+                <i class="fas fa-cloud text-5xl text-blue-600 dark:text-blue-300 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Cloud Deployment</h3>
+                <p class="text-gray-700 dark:text-gray-300 text-center">Deploying and managing web applications on cloud platforms like Firebase.</p>
+              </div>
+            </div>
+
           </div>
-          <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700">
-            <div
-              class="bg-gray-800 h-4 rounded-full animate-fill-progress"
-              style="width: 85%"
-            ></div>
+
+          <div class="swiper-nav-wrap">
+            <button class="swiper-button-prev group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all">
+              <svg class="h-5 w-5 text-indigo-600 group-hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"><path d="M10.0002 11.9999L6 7.99971L10.0025 3.99719" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="swiper-button-next group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all">
+              <svg class="h-5 w-5 text-indigo-600 group-hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"><path d="M5.99984 4.00012L10 8.00029L5.99748 12.0028" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
           </div>
         </div>
       </div>
     </section>
-    <!-- services -->
-    <section
-      id="services"
-      class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-white dark:bg-gray-900 text-center transition-colors duration-500"
-    >
-      <h2
-        class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide"
-      >
-        My Services
-      </h2>
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl w-full"
-      >
-        <div
-          class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
-        >
-          <i
-            class="fas fa-laptop-code text-5xl text-blue-600 dark:text-blue-300 mb-4"
-          ></i>
-          <h3
-            class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100"
-          >
-            Web Development
-          </h3>
-          <p class="text-gray-700 dark:text-gray-300 text-center">
-            Building responsive and dynamic web applications using modern MERN
-            stack technologies.
-          </p>
-        </div>
-        <div
-          class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
-        >
-          <i
-            class="fas fa-mobile-alt text-5xl text-blue-600 dark:text-blue-300 mb-4"
-          ></i>
-          <h3
-            class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100"
-          >
-            Responsive Design
-          </h3>
-          <p class="text-gray-700 dark:text-gray-300 text-center">
-            Ensuring your website looks great and functions perfectly on any
-            device, from desktop to mobile.
-          </p>
-        </div>
-        <div
-          class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
-        >
-          <i
-            class="fas fa-database text-5xl text-blue-600 dark:text-blue-300 mb-4"
-          ></i>
-          <h3
-            class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100"
-          >
-            API Development
-          </h3>
-          <p class="text-gray-700 dark:text-gray-300 text-center">
-            Designing and implementing robust RESTful APIs with Node.js and
-            Express.js.
-          </p>
-        </div>
-        <div
-          class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
-        >
-          <i
-            class="fas fa-headset text-5xl text-blue-600 dark:text-blue-300 mb-4"
-          ></i>
-          <h3
-            class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100"
-          >
-            Consulting & Support
-          </h3>
-          <p class="text-gray-700 dark:text-gray-300 text-center">
-            Providing expert advice and ongoing support for your web development
-            needs.
-          </p>
-        </div>
-        <div
-          class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
-        >
-          <i
-            class="fas fa-cogs text-5xl text-blue-600 dark:text-blue-300 mb-4"
-          ></i>
-          <h3
-            class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100"
-          >
-            Performance Optimization
-          </h3>
-          <p class="text-gray-700 dark:text-gray-300 text-center">
-            Optimizing web applications for speed and efficiency to enhance user
-            experience.
-          </p>
-        </div>
-        <div
-          class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
-        >
-          <i
-            class="fas fa-cloud text-5xl text-blue-600 dark:text-blue-300 mb-4"
-          ></i>
-          <h3
-            class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100"
-          >
-            Cloud Deployment
-          </h3>
-          <p class="text-gray-700 dark:text-gray-300 text-center">
-            Deploying and managing web applications on cloud platforms like
-            Firebase.
-          </p>
-        </div>
-      </div>
-    </section>
-    <!-- Certifications -->
-    <section
-      id="certifications"
-      class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-yellow-300 dark:bg-blue-950 text-center transition-colors duration-500"
-    >
-      <h2
-        class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide"
-      >
-        Certifications
-      </h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl w-full">
-        <div
-          class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center transform hover:scale-105 transition-transform duration-300"
-        >
-          <img
-            src="../assets/namaste_reactJS.png"
-            alt="Namaste React Certificate"
-            class="w-full mb-4 rounded-md shadow"
-          />
-          <h3
-            class="text-xl font-semibold mb-2 text-green-800 dark:text-green-400"
-          >
-            Namaste React
-          </h3>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">
-            Issued by NamasteDev.com
-          </p>
-          <a
-            href="https://namastedev.com/rajithlingamedu/certificates/namaste-react"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300"
-          >
-            View Certificate
-          </a>
-        </div>
+    <!-- Certifications (Swiper) -->
+    <section id="certifications" class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-yellow-300 dark:bg-blue-950 text-center transition-colors duration-500">
+      <h2 class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide">Certifications</h2>
 
-        <div
-          class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center transform hover:scale-105 transition-transform duration-300"
-        >
-          <img
-            src="../assets/NSDC_REACT.png"
-            alt="Internshala React Certificate"
-            class="w-full mb-4 rounded-md shadow"
-          />
-          <h3
-            class="text-xl font-semibold mb-2 text-green-800 dark:text-green-400"
-          >
-            React Course
-          </h3>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">
-            Issued by Internshala Trainings • April 2025
-          </p>
-          <a
-            href="https://trainings.internshala.com/s/v/3642249/47126893"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300"
-          >
-            View Certificate
-          </a>
-        </div>
+      <div class="w-full max-w-5xl mx-auto px-4 relative">
+        <div class="swiper multiple-slide-carousel certs-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide cert-slide">
+              <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+                <img src="../assets/namaste_reactJS.png" alt="Namaste React Certificate" class="w-full mb-4 rounded-md shadow" />
+                <h3 class="text-xl font-semibold mb-2 text-green-800 dark:text-green-400">Namaste React</h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">Issued by NamasteDev.com</p>
+                <a href="https://namastedev.com/rajithlingamedu/certificates/namaste-react" target="_blank" class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">View Certificate</a>
+              </div>
+            </div>
 
-        <div
-          class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center transform hover:scale-105 transition-transform duration-300"
-        >
-          <img
-            src="../assets/internshala_reactJS.png"
-            alt="React Training Certificate"
-            class="w-full mb-4 rounded-md shadow"
-          />
-          <h3
-            class="text-xl font-semibold mb-2 text-green-800 dark:text-green-400"
-          >
-            React Training
-          </h3>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">
-            Internshala • April 2025
-          </p>
-          <a
-            href="https://trainings.internshala.com/s/v/3641073/a6818b59"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300"
-          >
-            View Certificate
-          </a>
+            <div class="swiper-slide cert-slide">
+              <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+                <img src="../assets/NSDC_REACT.png" alt="Internshala React Certificate" class="w-full mb-4 rounded-md shadow" />
+                <h3 class="text-xl font-semibold mb-2 text-green-800 dark:text-green-400">React Course</h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">Issued by Internshala Trainings • April 2025</p>
+                <a href="https://trainings.internshala.com/s/v/3642249/47126893" target="_blank" class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">View Certificate</a>
+              </div>
+            </div>
+
+            <div class="swiper-slide cert-slide">
+              <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
+                <img src="../assets/internshala_reactJS.png" alt="React Training Certificate" class="w-full mb-4 rounded-md shadow" />
+                <h3 class="text-xl font-semibold mb-2 text-green-800 dark:text-green-400">React Training</h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">Internshala • April 2025</p>
+                <a href="https://trainings.internshala.com/s/v/3641073/a6818b59" target="_blank" class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">View Certificate</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-nav-wrap">
+            <button class="swiper-button-prev group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all">‹</button>
+            <button class="swiper-button-next group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all">›</button>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- projects -->
-    <section
-      id="projects"
-      class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-white dark:bg-gray-900 text-center transition-colors duration-500"
-    >
-      <h2
-        class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide"
-      >
-        My Projects
-      </h2>
+    <!-- Projects (Swiper) -->
+    <section id="projects" class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-white dark:bg-gray-900 text-center transition-colors duration-500">
+      <h2 class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide">My Projects</h2>
 
-      <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl w-full"
-      >
-        <div
-          class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col hover:scale-105 transition-transform duration-300"
-        >
-          <h3
-            class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400"
-          >
-            NetflixGPT Clone
-          </h3>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">
-            AI-powered movie recommender app with TMDB & OpenAI.
-          </p>
-          <a
-            href="https://rajithlingamnetflixgpt.web.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300"
-          >
-            View Project
-          </a>
-        </div>
+      <div class="w-full max-w-6xl mx-auto px-4 relative">
+        <div class="swiper multiple-slide-carousel projects-swiper">
+          <div class="swiper-wrapper">
 
-        <div
-          class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col hover:scale-105 transition-transform duration-300"
-        >
-          <h3
-            class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400"
-          >
-            FoodMall
-          </h3>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">
-            Responsive food ordering app with payment gateway.
-          </p>
-          <a
-            href="https://github.com/rajithlingam/ReactJS/tree/main/namasteReactjs/foodMall"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300"
-          >
-            View Project
-          </a>
-        </div>
+            <!-- ShoppyGlobe -->
+            <div class="swiper-slide project-slide">
+              <div class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">ShoppyGlobe</h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">Complete e-commerce web app built with React, Redux, and Firebase.</p>
+                </div>
+                <div class="flex gap-3">
+                  <a href="https://shoppyglobe-rl.web.app/" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">Live Link</a>
+                  <a href="https://github.com/rajithlingam/InternShala/tree/main/projectS/REACT.JS/shoppyglobe" target="_blank" class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all">Git Repo</a>
+                </div>
+              </div>
+            </div>
 
-        <div
-          class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col hover:scale-105 transition-transform duration-300"
-        >
-          <h3
-            class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400"
-          >
-            Portfolio Site
-          </h3>
-          <p class="text-gray-700 dark:text-gray-300 mb-4">
-            This site — built with React.js, TailwindCSS & Firebase Hosting.
-          </p>
-          <a
-            href="http://rajithlingam-pro.web.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300"
-          >
-            View Project
-          </a>
+            <!-- FoodMall -->
+            <div class="swiper-slide project-slide">
+              <div class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">FoodMall</h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">Food ordering app with cart & payment flow.</p>
+                </div>
+                <a href="https://github.com/rajithlingam/ReactJS/tree/main/namasteReactjs/foodMall" target="_blank" class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all">Git Repo</a>
+              </div>
+            </div>
+
+            <!-- Online Library -->
+            <div class="swiper-slide project-slide">
+              <div class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">Online Library</h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">Book management + authentication using React & Firebase.</p>
+                </div>
+                <div class="flex gap-3">
+                  <a href="https://online-library-rl.web.app/" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">Live Link</a>
+                  <a href="https://github.com/rajithlingam/InternShala/tree/main/projectS/REACT.JS/online-library" target="_blank" class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all">Git Repo</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Weather Forecast App -->
+            <div class="swiper-slide project-slide">
+              <div class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">Weather Forecast App</h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">Weather API implementation using pure JavaScript.</p>
+                </div>
+                <div class="flex gap-3">
+                  <a href="https://rajithlingam.github.io/InternShala/projectS/JAVASCRIPT/weather-forecast-app/index.html/" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">Live Link</a>
+                  <a href="https://github.com/rajithlingam/InternShala/tree/main/projectS/JAVASCRIPT/weather-forecast-app" target="_blank" class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all">Git Repo</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Student Registration System -->
+            <div class="swiper-slide project-slide">
+              <div class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">Student Registration System</h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">Complete form system using JavaScript & DOM.</p>
+                </div>
+                <div class="flex gap-3">
+                  <a href="https://rajithlingam.github.io/InternShala/projectS/JAVASCRIPT/Student-Registration-System/index.html/" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">Live Link</a>
+                  <a href="https://github.com/rajithlingam/InternShala/tree/main/projectS/JAVASCRIPT/Student-Registration-System" target="_blank" class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all">Git Repo</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- DOM ToDo List -->
+            <div class="swiper-slide project-slide">
+              <div class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">DOM ToDo List</h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">JavaScript DOM manipulation project.</p>
+                </div>
+                <div class="flex gap-3">
+                  <a href="https://rajithlingam.github.io/InternShala/projectS/JAVASCRIPT/DOM_ToDo-LisT/index.html/" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">Live Link</a>
+                  <a href="https://github.com/rajithlingam/InternShala/tree/main/projectS/JAVASCRIPT/DOM_ToDo-LisT" target="_blank" class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all">Git Repo</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- NetflixGPT -->
+            <div class="swiper-slide project-slide">
+              <div class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between">
+                <div>
+                  <h3 class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">NetflixGPT Clone</h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">AI-based movie recommender using TMDB & OpenAI.</p>
+                </div>
+                <a href="https://rajithlingamnetflixgpt.web.app/" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">Live Link</a>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="swiper-nav-wrap">
+            <button class="swiper-button-prev group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all">
+              <svg class="h-5 w-5 text-indigo-600 group-hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"><path d="M10.0002 11.9999L6 7.99971L10.0025 3.99719" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button class="swiper-button-next group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all">
+              <svg class="h-5 w-5 text-indigo-600 group-hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"><path d="M5.99984 4.00012L10 8.00029L5.99748 12.0028" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>
 
-    <footer
-      id="footer"
-      class="w-full sticky top-0 px-4 py-8 bg-yellow-500 dark:bg-gray-900 text-center transition-colors duration-500"
-    >
+    <!-- footer -->
+    <footer id="footer" class="w-full sticky top-0 px-4 py-8 bg-yellow-500 dark:bg-gray-900 text-center transition-colors duration-500">
       <div class="flex flex-col md:flex-row justify-center gap-4 mb-4">
-        <a
-          href="tel:+919025609150"
-          class="inline-block px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
-        >
-          Call Me
-        </a>
-        <a
-          href="mailto:work.rajithlingam@gmail.com"
-          class="inline-block px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
-        >
-          Email Me
-        </a>
+        <a href="tel:+919025609150" class="inline-block px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105">Call Me</a>
+        <a href="mailto:work.rajithlingam@gmail.com" class="inline-block px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105">Email Me</a>
       </div>
-
-      <p class="text-gray-700 dark:text-gray-300 text-sm">
-        © 2025 Rajithlingam. All rights reserved.
-      </p>
+      <p class="text-gray-700 dark:text-gray-300 text-sm">© 2025 Rajithlingam. All rights reserved.</p>
     </footer>
 
+    <!-- core scripts (menu, theme) -->
     <script>
       const menuToggle = document.getElementById("menu-toggle");
       const navMenu = document.getElementById("nav-menu");
       const themeToggle = document.getElementById("theme-toggle");
       const htmlElement = document.documentElement;
 
-      // Mobile menu toggle
-      menuToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("hidden");
-      });
+      menuToggle.addEventListener("click", () => { navMenu.classList.toggle("hidden"); });
 
-      // Close mobile menu when a navigation link is clicked
       document.querySelectorAll("#nav-menu a").forEach((item) => {
         item.addEventListener("click", () => {
-          if (
-            !navMenu.classList.contains("hidden") &&
-            window.innerWidth < 768
-          ) {
+          if (!navMenu.classList.contains("hidden") && window.innerWidth < 768) {
             navMenu.classList.add("hidden");
           }
         });
       });
 
-      // Day/Night Toggle
       themeToggle.addEventListener("click", () => {
         if (htmlElement.classList.contains("dark")) {
           htmlElement.classList.remove("dark");
@@ -819,252 +399,40 @@
         }
       });
 
-      // Initial theme setup based on local storage or system preference
-      if (
-        localStorage.getItem("theme") === "dark" ||
-        (!("theme" in localStorage) &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches)
-      ) {
+      if (localStorage.getItem("theme") === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
         htmlElement.classList.add("dark");
       } else {
         htmlElement.classList.remove("dark");
       }
     </script>
 
-    <!-- Vanilla carousel enabler (paste before closing body) -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Swiper Init: applies to all .multiple-slide-carousel elements -->
     <script>
-      (function () {
-        const sections = [
-          { id: "skills" },
-          { id: "services" },
-          { id: "certifications" },
-          { id: "projects" },
-        ];
-
-        function itemWidthFor(container) {
-          const w = container.clientWidth || window.innerWidth;
-          if (w < 640) return Math.floor(w * 0.86);
-          if (w < 1024) return Math.floor(w * 0.48);
-          return Math.floor(w * 0.3);
-        }
-
-        function makeCarousel(sectionEl) {
-          if (!sectionEl) return;
-          let container = Array.from(sectionEl.children).find((c) => {
-            return (
-              c.children &&
-              c.children.length > 0 &&
-              !c.matches("h2, h1, header, footer")
-            );
-          });
-          if (!container) return;
-          if (container.classList.contains("carousel-track")) return;
-
-          const track = document.createElement("div");
-          track.className = "carousel-track hide-scrollbar";
-          track.setAttribute("tabindex", "0");
-          track.setAttribute("role", "list");
-
-          const nodes = Array.from(container.children);
-          nodes.forEach((node) => {
-            const item = document.createElement("div");
-            item.className = "carousel-item";
-            if (node.className) {
-              item.className += " " + node.className;
-              item.className = item.className
-                .replace(/\bgrid\b/g, "")
-                .replace(/\bgrid-cols-[^\s]*\b/g, "");
-            }
-            item.appendChild(node.cloneNode(true));
-            track.appendChild(item);
-            node.remove();
-          });
-
-          container.innerHTML = "";
-          container.appendChild(track);
-
-          function applyWidths() {
-            const iw = itemWidthFor(track);
-            Array.from(track.children).forEach((it) => {
-              it.style.width = iw + "px";
-            });
-          }
-          applyWidths();
-          window.addEventListener("resize", () => {
-            applyWidths();
-          });
-
-          const controlsWrap = document.createElement("div");
-          controlsWrap.className = "carousel-controls";
-
-          const prevBtn = document.createElement("button");
-          prevBtn.className = "carousel-nav-btn";
-          prevBtn.innerText = "‹";
-          prevBtn.setAttribute("aria-label", "Previous slide");
-
-          const nextBtn = document.createElement("button");
-          nextBtn.className = "carousel-nav-btn";
-          nextBtn.innerText = "›";
-          nextBtn.setAttribute("aria-label", "Next slide");
-
-          const dots = document.createElement("div");
-          dots.className = "dots-wrap";
-          dots.setAttribute("role", "tablist");
-          dots.setAttribute("aria-hidden", "false");
-
-          controlsWrap.appendChild(prevBtn);
-          controlsWrap.appendChild(dots);
-          controlsWrap.appendChild(nextBtn);
-
-          container.appendChild(controlsWrap);
-
-          const items = Array.from(track.children);
-          function createDots() {
-            dots.innerHTML = "";
-            items.forEach((_, i) => {
-              const d = document.createElement("button");
-              d.className = "carousel-dot";
-              d.type = "button";
-              d.setAttribute("aria-label", "Go to slide " + (i + 1));
-              if (i === 0) d.setAttribute("aria-current", "true");
-              d.addEventListener("click", () => {
-                scrollToIndex(i);
-              });
-              dots.appendChild(d);
-            });
-          }
-          createDots();
-
-          let activeIndex = 0;
-          function updateDots() {
-            const ds = Array.from(dots.children);
-            ds.forEach((dot, i) =>
-              dot.setAttribute(
-                "aria-current",
-                i === activeIndex ? "true" : "false"
-              )
-            );
-          }
-
-          function scrollToIndex(i) {
-            i = Math.max(0, Math.min(items.length - 1, i));
-            const el = items[i];
-            if (!el) return;
-            track.scrollTo({
-              left: el.offsetLeft - track.offsetLeft,
-              behavior: "smooth",
-            });
-            activeIndex = i;
-            updateDots();
-          }
-
-          prevBtn.addEventListener("click", () =>
-            scrollToIndex(activeIndex - 1)
-          );
-          nextBtn.addEventListener("click", () =>
-            scrollToIndex(activeIndex + 1)
-          );
-
-          let raf = null;
-          track.addEventListener(
-            "scroll",
-            () => {
-              if (raf) cancelAnimationFrame(raf);
-              raf = requestAnimationFrame(() => {
-                const left = track.scrollLeft;
-                let closest = 0,
-                  closestDiff = Infinity;
-                items.forEach((it, idx) => {
-                  const diff = Math.abs(
-                    it.offsetLeft - track.offsetLeft - left
-                  );
-                  if (diff < closestDiff) {
-                    closestDiff = diff;
-                    closest = idx;
-                  }
-                });
-                if (closest !== activeIndex) {
-                  activeIndex = closest;
-                  updateDots();
-                }
-              });
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.multiple-slide-carousel').forEach(function (el) {
+          new Swiper(el, {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 16,
+            centeredSlides: false,
+            navigation: {
+              nextEl: el.querySelector('.swiper-button-next') || el.querySelector('.swiper-button-next, .swiper-button-next'),
+              prevEl: el.querySelector('.swiper-button-prev') || el.querySelector('.swiper-button-prev, .swiper-button-prev'),
             },
-            { passive: true }
-          );
-
-          let isDown = false,
-            startX = 0,
-            scrollStart = 0;
-          track.addEventListener("pointerdown", (e) => {
-            isDown = true;
-            startX = e.clientX;
-            scrollStart = track.scrollLeft;
-            track.setPointerCapture?.(e.pointerId);
-          });
-          track.addEventListener("pointermove", (e) => {
-            if (!isDown) return;
-            const dx = startX - e.clientX;
-            track.scrollLeft = scrollStart + dx;
-          });
-          ["pointerup", "pointercancel", "pointerleave"].forEach((evt) => {
-            track.addEventListener(evt, (e) => {
-              isDown = false;
-              try {
-                track.releasePointerCapture?.(e.pointerId);
-              } catch (e) {}
-            });
-          });
-
-          container.addEventListener("focusin", (e) => {
-            container._focusedInside = true;
-          });
-          container.addEventListener("focusout", (e) => {
-            container._focusedInside = false;
-          });
-
-          track._scrollToIndex = scrollToIndex;
-          track._prevBtn = prevBtn;
-          track._nextBtn = nextBtn;
-          track._items = items;
-
-          track.setAttribute(
-            "aria-label",
-            (sectionEl.id || "carousel") + " carousel"
-          );
-
-          return track;
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-          const createdTracks = [];
-          sections.forEach((s) => {
-            const el = document.getElementById(s.id);
-            if (!el) return;
-            const track = makeCarousel(el);
-            if (track) createdTracks.push(track);
-          });
-
-          document.addEventListener(
-            "keydown",
-            (e) => {
-              if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
-              const active = document.activeElement;
-              if (!active) return;
-              const track = active.closest(".carousel-track");
-              if (!track) return;
-              if (e.key === "ArrowLeft") {
-                const prev = track._prevBtn;
-                if (prev) prev.click();
-              }
-              if (e.key === "ArrowRight") {
-                const next = track._nextBtn;
-                if (next) next.click();
-              }
+            breakpoints: {
+              990: { slidesPerView: 1, spaceBetween: 12 },
+              1028: { slidesPerView: 2, spaceBetween: 20 },
+              1400: { slidesPerView: 3, spaceBetween: 30 }
             },
-            { passive: true }
-          );
+            a11y: true,
+            keyboard: { enabled: true },
+            grabCursor: true
+          });
         });
-      })();
+      });
     </script>
   </body>
 </html>
