@@ -14,43 +14,134 @@
       content="Rajithlingam, rajithlingam, RAJITHLINGAM, Portfolio, Full-Stack Developer, MERN Developer, Web Developer, MongoDB, Express, React, Node.js, Projects, Resume, Skills"
     />
     <meta name="author" content="Rajithlingam" />
-    <meta property="og:title" content="Rajithlingam | Full-Stack Web Developer (MERN)" />
-    <meta property="og:description" content="Explore the work and skills of Rajithlingam – Full-Stack MERN Developer." />
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/141789575?v=4" />
+    <meta
+      property="og:title"
+      content="Rajithlingam | Full-Stack Web Developer (MERN)"
+    />
+    <meta
+      property="og:description"
+      content="Explore the work and skills of Rajithlingam – Full-Stack MERN Developer."
+    />
+    <meta
+      property="og:image"
+      content="https://avatars.githubusercontent.com/u/141789575?v=4"
+    />
     <meta property="og:url" content="https://rajithlingam-pro.web.app/" />
     <meta property="og:type" content="website" />
 
     <link rel="icon" href="../assets/MERN-RL.png" type="image/x-icon" />
     <link href="./output.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
 
-    <!-- Swiper CDN (CSS) -->
-    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+    <!-- Swiper CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+      rel="stylesheet"
+    />
 
     <style>
-      /* minor helpers retained */
-      .carousel-track { display:flex; gap:1rem; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; scroll-behavior:smooth; padding-bottom:6px; }
-      .carousel-item { flex-shrink:0; scroll-snap-align:center; }
-      .carousel-controls { display:flex; gap:.5rem; align-items:center; justify-content:center; margin-top:.75rem; }
-      .carousel-dot { width:10px; height:10px; border-radius:9999px; background:rgba(148,163,184,.6); border:none; padding:0; cursor:pointer; }
-      .carousel-dot[aria-current="true"] { background:#16a34a; }
-      .carousel-nav-btn { background:rgba(255,255,255,.9); border-radius:9999px; border:0; padding:6px 10px; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,.08); }
-      .carousel-nav-btn:focus { outline:2px solid rgba(34,197,94,.25); outline-offset:2px; }
-      .hide-scrollbar::-webkit-scrollbar { height:8px; }
-      .hide-scrollbar::-webkit-scrollbar-thumb { background:rgba(100,100,100,.18); border-radius:9999px; }
+      /* === Force full-yellow background for skills section === */
+      #skills {
+        background-color: #fcd34d !important; /* tailwind yellow-300 hex */
+        background-image: none !important;
+        position: relative;
+        z-index: 1; /* keeps section above lower content but below header (header has z-50) */
+        padding-top: 3.25rem; /* small spacing tweak */
+        padding-bottom: 3.25rem;
+      }
 
-      /* Swiper tweaks */
-      .swiper-wrapper { width:100%; height:max-content !important; padding-bottom:64px !important; transition-timing-function:linear !important; position:relative; }
-      .swiper-pagination-bullet { background:#4f46e5; }
+      /* === Ensure swiper container sits visually on the yellow background === */
+      .skills-swiper {
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 1.25rem 0; /* breathing room above/below icons */
+        z-index: 2;
+      }
 
-      /* center nav buttons area for Swiper */
-      .swiper-nav-wrap { position:absolute; left:0; right:0; bottom:3rem; display:flex; justify-content:center; gap:1rem; width:100%; pointer-events:none; }
-      .swiper-nav-wrap button { pointer-events:auto; }
+      /* make wrapper fully transparent and remove any padding that creates white box effect */
+      .skills-swiper .swiper-wrapper {
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+      }
 
-      /* ensure slides have consistent height and spacing */
-      .project-slide, .service-slide, .cert-slide { height:18rem; display:flex; flex-direction:column; justify-content:space-between; }
-      @media (min-width:1024px) {
-        .project-slide, .service-slide, .cert-slide { height:20rem; }
+      /* slides: fully transparent, no border/shadow */
+      .skills-swiper .swiper-slide {
+        background: transparent !important;
+        box-shadow: none !important;
+        border: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* image: remove background, small drop shadow, crisp size */
+      .skills-swiper .swiper-slide img {
+        background: transparent !important;
+        width: 110px;
+        height: 110px;
+        object-fit: contain;
+        filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
+        transition:
+          transform 0.22s ease,
+          filter 0.22s ease;
+      }
+      .skills-swiper .swiper-slide img:hover {
+        transform: translateY(-6px) scale(1.05);
+        filter: drop-shadow(0 18px 38px rgba(0, 0, 0, 0.16));
+      }
+
+      /* nav buttons: remove semi-transparent white and make them solid (so no 'floating' white pill) */
+      .skills-prev,
+      .skills-next {
+        background-color: #06b6d4 !important; /* cyan-ish, contrast on yellow; pick any */
+        color: #fff !important;
+        border: 0 !important;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+        opacity: 1 !important;
+      }
+      .skills-prev:hover,
+      .skills-next:hover {
+        background-color: #0891b2 !important;
+      }
+
+      /* pagination bullets: small subtle green dots on yellow */
+      .skills-swiper .swiper-pagination-bullet {
+        background: rgba(34, 197, 94, 0.35) !important;
+        width: 8px;
+        height: 8px;
+        opacity: 1 !important;
+      }
+      .skills-swiper .swiper-pagination-bullet-active {
+        background: #16a34a !important;
+      }
+
+      /* if any other component accidentally applies rounded white cards, make sure skills area overrides them */
+      #skills .rounded-lg,
+      #skills .bg-white,
+      #skills .shadow-lg {
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+
+      /* fix stacking so the icons are visible on the yellow and not clipped by sibling cards */
+      #skills,
+      #skills .skills-swiper,
+      #skills .swiper-wrapper,
+      #skills .swiper-slide {
+        z-index: 2;
+        position: relative;
+      }
+
+      /* small responsive size tweak */
+      @media (max-width: 640px) {
+        .skills-swiper .swiper-slide img {
+          width: 80px;
+          height: 80px;
+        }
       }
     </style>
   </head>
@@ -60,22 +151,83 @@
     <header
       class="group w-[97%] sticky top-0 z-50 mx-auto flex flex-wrap justify-between items-center px-8 py-2 mt-3 shadow-xl rounded-lg bg-sky-300 hover:bg-pink-600 dark:bg-violet-900 dark:text-yellow-200 dark:hover:bg-black transition-all duration-300"
     >
-      <a href="#home" class="text-5xl font-bold text-green-600 group-hover:text-yellow-300 dark:text-sky-300 dark:group-hover:text-pink-600 hover:scale-105 transition-transform duration-300">RL</a>
+      <a
+        href="#home"
+        class="text-5xl font-bold text-green-600 group-hover:text-yellow-300 dark:text-sky-300 dark:group-hover:text-pink-600 hover:scale-105 transition-transform duration-300"
+        >RL</a
+      >
 
-      <button id="menu-toggle" class="md:hidden text-4xl text-green-700 hover:text-yellow-400 focus:outline-none dark:text-yellow-200 dark:hover:text-yellow-400" aria-label="Toggle navigation menu">☰</button>
+      <button
+        id="menu-toggle"
+        class="md:hidden text-4xl text-green-700 hover:text-yellow-400 focus:outline-none dark:text-yellow-200 dark:hover:text-yellow-400"
+        aria-label="Toggle navigation menu"
+      >
+        ☰
+      </button>
 
-      <nav id="nav-menu" class="w-full md:w-auto md:flex hidden flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4 mt-4 md:mt-0">
-        <ul class="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0">
-          <li><a href="#home" class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300">Home</a></li>
-          <li><a href="#about" class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300">About</a></li>
-          <li><a href="#skills" class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300">Skills</a></li>
-          <li><a href="#services" class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300">Services</a></li>
-          <li><a href="#certifications" class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300">Certifications</a></li>
-          <li><a href="#projects" class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300">Projects</a></li>
-          <li><a href="#footer" class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300">Contact</a></li>
+      <nav
+        id="nav-menu"
+        class="w-full md:w-auto md:flex hidden flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-4 mt-4 md:mt-0"
+      >
+        <ul
+          class="flex flex-col md:flex-row md:space-x-3 space-y-3 md:space-y-0"
+        >
+          <li>
+            <a
+              href="#home"
+              class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#about"
+              class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#skills"
+              class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300"
+              >Skills</a
+            >
+          </li>
+          <li>
+            <a
+              href="#services"
+              class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href="#certifications"
+              class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300"
+              >Certifications</a
+            >
+          </li>
+          <li>
+            <a
+              href="#projects"
+              class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a
+              href="#footer"
+              class="block p-3 rounded-lg text-sky-300 bg-pink-600 hover:text-pink-600 hover:bg-sky-300 dark:bg-black dark:hover:bg-blue-950 dark:hover:text-sky-300 transition-all duration-300"
+              >Contact</a
+            >
+          </li>
         </ul>
 
-        <button id="theme-toggle" class="ml-4 p-3 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none transition-colors duration-300" aria-label="Toggle day/night mode">
+        <button
+          id="theme-toggle"
+          class="ml-4 p-3 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:outline-none transition-colors duration-300"
+          aria-label="Toggle day/night mode"
+        >
           <i class="fas fa-moon hidden dark:block"></i>
           <i class="fas fa-sun dark:hidden"></i>
         </button>
@@ -83,123 +235,399 @@
     </header>
 
     <!-- home -->
-    <section id="home" class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 px-4 py-12 text-center md:text-left bg-yellow-300 dark:bg-blue-950 transition-colors duration-500">
-      <div class="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg animate-fade-in-up">
-        <img src="../assets/rl.jpg" alt="Rajithlingam" class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-in-out" />
+    <section
+      id="home"
+      class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col md:flex-row items-center justify-center gap-8 px-4 py-12 text-center md:text-left bg-yellow-300 dark:bg-blue-950 transition-colors duration-500"
+    >
+      <div
+        class="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden shadow-lg animate-fade-in-up"
+      >
+        <img
+          src="../assets/rl.jpg"
+          alt="Rajithlingam"
+          class="absolute inset-0 w-full h-full object-cover hover:scale-105 transition-transform duration-500 ease-in-out"
+        />
       </div>
 
       <div class="max-w-2xl">
-        <h1 class="text-3xl font-bold mb-4 text-green-600 dark:text-sky-300 animate-slide-in-left">Hi, I'm RAJITHLINGAM ANBUMANI.</h1>
-        <p class="text-lg text-blue-800 dark:text-blue-200 mb-4 font-mono animate-slide-in-right">Full-Stack Web Developer (MERN) | Specialist in React.js</p>
+        <h1
+          class="text-3xl font-bold mb-4 text-green-600 dark:text-sky-300 animate-slide-in-left"
+        >
+          Hi, I'm RAJITHLINGAM ANBUMANI.
+        </h1>
+        <p
+          class="text-lg text-blue-800 dark:text-blue-200 mb-4 font-mono animate-slide-in-right"
+        >
+          Full-Stack Web Developer (MERN) | Specialist in React.js
+        </p>
 
         <div class="flex justify-center md:justify-start gap-4 mb-6">
-          <a href="https://github.com/rajithlingam" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"><i class="fab fa-github text-3xl"></i></a>
-          <a href="https://linkedin.com/in/rajithlingam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"><i class="fab fa-linkedin text-3xl"></i></a>
-          <a href="mailto:vrajithlingam@gmail.com" aria-label="Email" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"><i class="fas fa-envelope-at text-3xl"></i></a>
-          <a href="tel:+919025609150" aria-label="Phone" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"><i class="fas fa-phone-alt text-3xl"></i></a>
+          <a
+            href="https://github.com/rajithlingam"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"
+            ><i class="fab fa-github text-3xl"></i
+          ></a>
+          <a
+            href="https://linkedin.com/in/rajithlingam"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"
+            ><i class="fab fa-linkedin text-3xl"></i
+          ></a>
+          <a
+            href="mailto:vrajithlingam@gmail.com"
+            aria-label="Email"
+            class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"
+            ><i class="fas fa-envelope-at text-3xl"></i
+          ></a>
+          <a
+            href="tel:+919025609150"
+            aria-label="Phone"
+            class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-sky-300 transition-transform hover:scale-110"
+            ><i class="fas fa-phone-alt text-3xl"></i
+          ></a>
         </div>
 
-        <div class="inline-block px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105">
-          <a href="../assets/pdfs/rajithlingam_CV_.pdf" download> Download </a>
-          <a href="../assets/pdfs/RAJITHLINGAMANBUMANI_InternshalaResume.pdf" download> Resume</a>
+        <div
+          class="inline-block px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
+        >
+          <a
+            href="../assets/pdfs/RAJITHLINGAM_FrontEnd-(ReactJs)_CV.pdf"
+            download
+            >Download</a
+          >
+          <a href="../assets/pdfs/FE.rajithlingam_CV.pdf" download> Resume</a>
         </div>
-        <a href="#about" class="inline-block px-6 py-3 ml-4 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all duration-300 transform hover:scale-105">Read More</a>
+        <a
+          href="#about"
+          class="inline-block px-6 py-3 ml-4 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all duration-300 transform hover:scale-105"
+          >Read More</a
+        >
       </div>
     </section>
 
     <!-- about -->
-    <section id="about" class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 px-4 py-12 bg-white dark:bg-gray-900 text-center md:text-left transition-colors duration-500">
+    <section
+      id="about"
+      class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 px-4 py-12 bg-white dark:bg-gray-900 text-center md:text-left transition-colors duration-500"
+    >
       <div class="max-w-2xl">
-        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-green-700 dark:text-sky-300 tracking-wide">About Me</h2>
-        <p class="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
-          I am Rajithlingam, a dedicated <strong>Full-Stack MERN Developer</strong> with a passion for crafting responsive and user-friendly web applications. My experience includes building dynamic interfaces with <strong>React.js, Redux Toolkit, Tailwind CSS, Firebase, and Jest.</strong> I enjoy solving complex problems with clean, efficient code.
+        <h2
+          class="text-3xl md:text-5xl font-bold mb-4 text-green-700 dark:text-sky-300 tracking-wide"
+        >
+          About Me
+        </h2>
+        <p
+          class="text-base md:text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed"
+        >
+          I am Rajithlingam, a dedicated
+          <strong>Full-Stack MERN Developer</strong> with a passion for crafting
+          responsive and user-friendly web applications. My experience includes
+          building dynamic interfaces with
+          <strong
+            >React.js, Redux Toolkit, Tailwind CSS, Firebase, and Jest.</strong
+          >
+          I enjoy solving complex problems with clean, efficient code.
         </p>
       </div>
-      <div><img src="../assets/RL-MERN.png" alt="Rajithlingam" class="w-48 md:w-64 rounded-lg shadow-lg hover:scale-105 transition-transform duration-500" /></div>
+      <div>
+        <img
+          src="../assets/RL-MERN.png"
+          alt="Rajithlingam"
+          class="w-48 md:w-64 rounded-lg shadow-lg hover:scale-105 transition-transform duration-500"
+        />
+      </div>
     </section>
 
-    <!-- skills -->
-    <section id="skills" class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-yellow-300 dark:bg-blue-950 text-center transition-colors duration-500">
-      <h2 class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide">My Skills</h2>
-      <div class="w-full max-w-4xl space-y-6 text-left">
-        <!-- skill bars (unchanged) -->
-        <div>
-          <div class="flex justify-between mb-1">
-            <span class="text-base font-medium text-cyan-700 dark:text-cyan-400">Tailwind CSS</span>
-            <span class="text-sm font-medium text-cyan-700 dark:text-cyan-400">80%</span>
+    <!-- SKILLS  -->
+    <section
+      id="skills"
+      class="scroll-mt-20 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-yellow-300 dark:bg-blue-950 text-center transition-colors duration-500"
+      style="background-color: rgb(253 224 71) !important"
+    >
+      <h2
+        class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide"
+      >
+        Skills
+      </h2>
+
+      <div class="w-full max-w-6xl mx-auto px-4 relative">
+        <!-- SWIPER -->
+        <div class="swiper skills-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide flex items-center justify-center">
+              <img
+                src="../assets/tech_Img/HTML.png"
+                alt="HTML"
+                class="w-24 h-24 object-contain"
+              />
+            </div>
+
+            <div class="swiper-slide flex items-center justify-center">
+              <img
+                src="../assets/tech_Img/css.png"
+                alt="CSS"
+                class="w-24 h-24 object-contain"
+              />
+            </div>
+
+            <div class="swiper-slide flex items-center justify-center">
+              <img
+                src="../assets/tech_Img/tailwindCss.png"
+                alt="Tailwind"
+                class="w-24 h-24 object-contain"
+              />
+            </div>
+
+            <div class="swiper-slide flex items-center justify-center">
+              <img
+                src="../assets/tech_Img/js.png"
+                alt="JavaScript"
+                class="w-24 h-24 object-contain"
+              />
+            </div>
+
+            <div class="swiper-slide flex items-center justify-center">
+              <img
+                src="../assets/tech_Img/reactJs.png"
+                alt="React"
+                class="w-24 h-24 object-contain"
+              />
+            </div>
+
+            <div class="swiper-slide flex items-center justify-center">
+              <img
+                src="../assets/tech_Img/jest.png"
+                alt="Jest"
+                class="w-24 h-24 object-contain"
+              />
+            </div>
+
+            <div class="swiper-slide flex items-center justify-center">
+              <img
+                src="../assets/tech_Img/nodeJs.png"
+                alt="NodeJS"
+                class="w-24 h-24 object-contain"
+              />
+            </div>
+
+            <div class="swiper-slide flex items-center justify-center">
+              <img
+                src="../assets/tech_Img/expressJs.png"
+                alt="ExpressJS"
+                class="w-24 h-24 object-contain"
+              />
+            </div>
+
+            <div class="swiper-slide flex items-center justify-center">
+              <img
+                src="../assets/tech_Img/mongoDB.png"
+                alt="MongoDB"
+                class="w-24 h-24 object-contain"
+              />
+            </div>
+
+            <div class="swiper-slide flex items-center justify-center">
+              <img
+                src="../assets/tech_Img/DSA.png"
+                alt="DSA"
+                class="w-24 h-24 object-contain"
+              />
+            </div>
+
+            <div class="swiper-slide flex items-center justify-center">
+              <img
+                src="../assets/tech_Img/gitHub.png"
+                alt="GitHub"
+                class="w-24 h-24 object-contain"
+              />
+            </div>
           </div>
-          <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700">
-            <div class="bg-cyan-600 h-4 rounded-full animate-fill-progress" style="width: 80%"></div>
-          </div>
+
+          <!-- NAV BUTTONS -->
+          <button
+            class="skills-prev absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 swiper-button-prev p-2 md:p-3 flex items-center justify-center border border-indigo-600 w-10 md:w-12 h-10 md:h-12 rounded-full bg-white/90 hover:bg-indigo-600 transition-colors"
+            aria-label="Previous"
+          >
+            ‹
+          </button>
+
+          <button
+            class="skills-next absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 swiper-button-next p-2 md:p-3 flex items-center justify-center border border-indigo-600 w-10 md:w-12 h-10 md:h-12 rounded-full bg-white/90 hover:bg-indigo-600 transition-colors"
+            aria-label="Next"
+          >
+            ›
+          </button>
+
+          <div class="swiper-pagination mt-8"></div>
         </div>
-        <!-- ... other skills ... -->
       </div>
     </section>
 
     <!-- SERVICES (Swiper) -->
-    <section id="services" class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-white dark:bg-gray-900 text-center transition-colors duration-500">
-      <h2 class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide">My Services</h2>
+    <section
+      id="services"
+      class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-white dark:bg-gray-900 text-center transition-colors duration-500"
+    >
+      <h2
+        class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide"
+      >
+        My Services
+      </h2>
 
       <div class="w-full max-w-6xl mx-auto px-4 relative">
         <div class="swiper multiple-slide-carousel services-swiper">
           <div class="swiper-wrapper">
-
             <div class="swiper-slide service-slide">
-              <div class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-                <i class="fas fa-laptop-code text-5xl text-blue-600 dark:text-blue-300 mb-4"></i>
-                <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Web Development</h3>
-                <p class="text-gray-700 dark:text-gray-300 text-center">Building responsive and dynamic web applications using modern MERN stack technologies.</p>
+              <div
+                class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center"
+              >
+                <i
+                  class="fas fa-laptop-code text-5xl text-blue-600 dark:text-blue-300 mb-4"
+                ></i>
+                <h3
+                  class="text-xs font-semibold mb-2 text-gray-800 dark:text-gray-100"
+                >
+                  Web Development
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 text-center">
+                  Building responsive and dynamic web applications using modern
+                  MERN stack technologies.
+                </p>
               </div>
             </div>
-
             <div class="swiper-slide service-slide">
-              <div class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-                <i class="fas fa-mobile-alt text-5xl text-blue-600 dark:text-blue-300 mb-4"></i>
-                <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Responsive Design</h3>
-                <p class="text-gray-700 dark:text-gray-300 text-center">Ensuring your website looks great and functions perfectly on any device, from desktop to mobile.</p>
+              <div
+                class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center"
+              >
+                <i
+                  class="fas fa-mobile-alt text-5xl text-blue-600 dark:text-blue-300 mb-4"
+                ></i>
+                <h3
+                  class="text-xs font-semibold mb-2 text-gray-800 dark:text-gray-100"
+                >
+                  Responsive Design
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 text-center">
+                  Ensuring your website looks great and functions perfectly on
+                  any device, from desktop to mobile.
+                </p>
               </div>
             </div>
-
             <div class="swiper-slide service-slide">
-              <div class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-                <i class="fas fa-database text-5xl text-blue-600 dark:text-blue-300 mb-4"></i>
-                <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">API Development</h3>
-                <p class="text-gray-700 dark:text-gray-300 text-center">Designing and implementing robust RESTful APIs with Node.js and Express.js.</p>
+              <div
+                class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center"
+              >
+                <i
+                  class="fas fa-database text-5xl text-blue-600 dark:text-blue-300 mb-4"
+                ></i>
+                <h3
+                  class="text-xs font-semibold mb-2 text-gray-800 dark:text-gray-100"
+                >
+                  API Development
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 text-center">
+                  Designing and implementing robust RESTful APIs with Node.js
+                  and Express.js.
+                </p>
               </div>
             </div>
-
             <div class="swiper-slide service-slide">
-              <div class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-                <i class="fas fa-headset text-5xl text-blue-600 dark:text-blue-300 mb-4"></i>
-                <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Consulting & Support</h3>
-                <p class="text-gray-700 dark:text-gray-300 text-center">Providing expert advice and ongoing support for your web development needs.</p>
+              <div
+                class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center"
+              >
+                <i
+                  class="fas fa-headset text-5xl text-blue-600 dark:text-blue-300 mb-4"
+                ></i>
+                <h3
+                  class="text-xs font-semibold mb-2 text-gray-800 dark:text-gray-100"
+                >
+                  Consulting & Support
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 text-center">
+                  Providing expert advice and ongoing support for your web
+                  development needs.
+                </p>
               </div>
             </div>
-
             <div class="swiper-slide service-slide">
-              <div class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-                <i class="fas fa-cogs text-5xl text-blue-600 dark:text-blue-300 mb-4"></i>
-                <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Performance Optimization</h3>
-                <p class="text-gray-700 dark:text-gray-300 text-center">Optimizing web applications for speed and efficiency to enhance user experience.</p>
+              <div
+                class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center"
+              >
+                <i
+                  class="fas fa-cogs text-5xl text-blue-600 dark:text-blue-300 mb-4"
+                ></i>
+                <h3
+                  class="text-xs font-semibold mb-2 text-gray-800 dark:text-gray-100"
+                >
+                  Performance Optimization
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 text-center">
+                  Optimizing web applications for speed and efficiency to
+                  enhance user experience.
+                </p>
               </div>
             </div>
-
             <div class="swiper-slide service-slide">
-              <div class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-                <i class="fas fa-cloud text-5xl text-blue-600 dark:text-blue-300 mb-4"></i>
-                <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">Cloud Deployment</h3>
-                <p class="text-gray-700 dark:text-gray-300 text-center">Deploying and managing web applications on cloud platforms like Firebase.</p>
+              <div
+                class="bg-yellow-100 dark:bg-blue-800 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center"
+              >
+                <i
+                  class="fas fa-cloud text-5xl text-blue-600 dark:text-blue-300 mb-4"
+                ></i>
+                <h3
+                  class="text-xs font-semibold mb-2 text-gray-800 dark:text-gray-100"
+                >
+                  Cloud Deployment
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 text-center">
+                  Deploying and managing web applications on cloud platforms
+                  like Firebase.
+                </p>
               </div>
             </div>
-
           </div>
 
           <div class="swiper-nav-wrap">
-            <button class="swiper-button-prev group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all">
-              <svg class="h-5 w-5 text-indigo-600 group-hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"><path d="M10.0002 11.9999L6 7.99971L10.0025 3.99719" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <button
+              class="swiper-button-prev group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all"
+            >
+              <svg
+                class="h-5 w-5 text-indigo-600 group-hover:text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M10.0002 11.9999L6 7.99971L10.0025 3.99719"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </button>
-            <button class="swiper-button-next group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all">
-              <svg class="h-5 w-5 text-indigo-600 group-hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"><path d="M5.99984 4.00012L10 8.00029L5.99748 12.0028" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <button
+              class="swiper-button-next group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all"
+            >
+              <svg
+                class="h-5 w-5 text-indigo-600 group-hover:text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M5.99984 4.00012L10 8.00029L5.99748 12.0028"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </button>
           </div>
         </div>
@@ -207,156 +635,405 @@
     </section>
 
     <!-- Certifications (Swiper) -->
-    <section id="certifications" class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-yellow-300 dark:bg-blue-950 text-center transition-colors duration-500">
-      <h2 class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide">Certifications</h2>
+    <section
+      id="certifications"
+      class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-yellow-300 dark:bg-blue-950 text-center transition-colors duration-500"
+    >
+      <h2
+        class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide"
+      >
+        Certifications
+      </h2>
 
       <div class="w-full max-w-5xl mx-auto px-4 relative">
         <div class="swiper multiple-slide-carousel certs-swiper">
           <div class="swiper-wrapper">
+            <!-- Namaste React -->
             <div class="swiper-slide cert-slide">
-              <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-                <img src="../assets/namaste_reactJS.png" alt="Namaste React Certificate" class="w-full mb-4 rounded-md shadow" />
-                <h3 class="text-xl font-semibold mb-2 text-green-800 dark:text-green-400">Namaste React</h3>
-                <p class="text-gray-700 dark:text-gray-300 mb-4">Issued by NamasteDev.com</p>
-                <a href="https://namastedev.com/rajithlingamedu/certificates/namaste-react" target="_blank" class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">View Certificate</a>
+              <div
+                class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center"
+              >
+                <img
+                  src="../assets/namaste_react.png"
+                  alt="Namaste React Certificate"
+                  class="w-full mb-4 rounded-md shadow"
+                />
+                <h3
+                  class="text-xs font-semibold mb-2 text-green-800 dark:text-green-400"
+                >
+                  Namaste React
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                  Issued by NamasteDev.com
+                </p>
+                <a
+                  href="https://namastedev.com/rajithlingamedu/certificates/namaste-react"
+                  target="_blank"
+                  class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all"
+                  >View Certificate</a
+                >
               </div>
             </div>
 
+            <!-- NSDC React -->
             <div class="swiper-slide cert-slide">
-              <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-                <img src="../assets/NSDC_REACT.png" alt="Internshala React Certificate" class="w-full mb-4 rounded-md shadow" />
-                <h3 class="text-xl font-semibold mb-2 text-green-800 dark:text-green-400">React Course</h3>
-                <p class="text-gray-700 dark:text-gray-300 mb-4">Issued by Internshala Trainings • April 2025</p>
-                <a href="https://trainings.internshala.com/s/v/3642249/47126893" target="_blank" class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">View Certificate</a>
+              <div
+                class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center"
+              >
+                <img
+                  src="../assets/NSDC_REACT.png"
+                  alt="Internshala React Certificate"
+                  class="w-full mb-4 rounded-md shadow"
+                />
+                <h3
+                  class="text-xs font-semibold mb-2 text-green-800 dark:text-green-400"
+                >
+                  NSDC React Course
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                  Issued by Internshala Trainings • April 2025
+                </p>
+                <a
+                  href="https://trainings.internshala.com/s/v/3642249/47126893"
+                  target="_blank"
+                  class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all"
+                  >View Certificate</a
+                >
               </div>
             </div>
 
+            <!-- NSDC Full-Stack -->
             <div class="swiper-slide cert-slide">
-              <div class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center">
-                <img src="../assets/internshala_reactJS.png" alt="React Training Certificate" class="w-full mb-4 rounded-md shadow" />
-                <h3 class="text-xl font-semibold mb-2 text-green-800 dark:text-green-400">React Training</h3>
-                <p class="text-gray-700 dark:text-gray-300 mb-4">Internshala • April 2025</p>
-                <a href="https://trainings.internshala.com/s/v/3641073/a6818b59" target="_blank" class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">View Certificate</a>
+              <div
+                class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center"
+              >
+                <img
+                  src="../assets/NSDC_PCG-FSD.png"
+                  alt="Internshala FSD Certificate"
+                  class="w-full mb-4 rounded-md shadow"
+                />
+                <h3
+                  class="text-xs font-semibold mb-2 text-green-800 dark:text-green-400"
+                >
+                  NSDC Full-Stack Web Development (MERN)
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                  Issued by Internshala Trainings • September 2025
+                </p>
+                <a
+                  href="https://trainings.internshala.com/s/v/3642249/47126893"
+                  target="_blank"
+                  class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all"
+                  >View Certificate</a
+                >
+              </div>
+            </div>
+
+            <!-- Internshala React Training -->
+            <div class="swiper-slide cert-slide">
+              <div
+                class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center"
+              >
+                <img
+                  src="../assets/internshala_react.png"
+                  alt="React Training Certificate"
+                  class="w-full mb-4 rounded-md shadow"
+                />
+                <h3
+                  class="text-xs font-semibold mb-2 text-green-800 dark:text-green-400"
+                >
+                  React Training
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                  Internshala • April 2025
+                </p>
+                <a
+                  href="https://trainings.internshala.com/s/v/3641073/a6818b59"
+                  target="_blank"
+                  class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all"
+                  >View Certificate</a
+                >
+              </div>
+            </div>
+
+            <!-- PCG Full-Stack -->
+            <div class="swiper-slide cert-slide">
+              <div
+                class="bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 flex flex-col items-center justify-center"
+              >
+                <img
+                  src="../assets/PCG-FSD.png"
+                  alt="PCG-FSD"
+                  class="w-full mb-4 rounded-md shadow"
+                />
+                <h3
+                  class="text-xs font-semibold mb-2 text-green-800 dark:text-green-400"
+                >
+                  Full-Stack Web Development (MERN)
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                  Issued by Internshala Trainings • September 2025
+                </p>
+                <a
+                  href="https://trainings.internshala.com/s/v/3807202/abb8c363"
+                  target="_blank"
+                  class="inline-block px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all"
+                  >View Certificate</a
+                >
               </div>
             </div>
           </div>
 
           <div class="swiper-nav-wrap">
-            <button class="swiper-button-prev group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all">‹</button>
-            <button class="swiper-button-next group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all">›</button>
+            <button
+              class="swiper-button-prev group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all"
+            >
+              ‹
+            </button>
+            <button
+              class="swiper-button-next group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all"
+            >
+              ›
+            </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects (Swiper) -->
-    <section id="projects" class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-white dark:bg-gray-900 text-center transition-colors duration-500">
-      <h2 class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide">My Projects</h2>
+    <!-- projects -->
+    <section
+      id="projects"
+      class="scroll-mt-20 sticky top-0 min-h-screen flex flex-col items-center justify-center px-4 py-12 bg-white dark:bg-gray-900 text-center transition-colors duration-500"
+    >
+      <h2
+        class="text-3xl md:text-5xl font-bold mb-10 text-green-700 dark:text-sky-300 tracking-wide"
+      >
+        My Projects
+      </h2>
 
       <div class="w-full max-w-6xl mx-auto px-4 relative">
         <div class="swiper multiple-slide-carousel projects-swiper">
           <div class="swiper-wrapper">
-
             <!-- ShoppyGlobe -->
             <div class="swiper-slide project-slide">
-              <div class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between">
+              <div
+                class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between"
+              >
                 <div>
-                  <h3 class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">ShoppyGlobe</h3>
-                  <p class="text-gray-700 dark:text-gray-300 mb-4">Complete e-commerce web app built with React, Redux, and Firebase.</p>
+                  <h3
+                    class="text-xs font-semibold mb-2 text-blue-800 dark:text-blue-400"
+                  >
+                    ShoppyGlobe
+                  </h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    Complete e-commerce web app built with React, Redux, and
+                    Firebase.
+                  </p>
                 </div>
                 <div class="flex gap-3">
-                  <a href="https://shoppyglobe-rl.web.app/" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">Live Link</a>
-                  <a href="https://github.com/rajithlingam/InternShala/tree/main/projectS/REACT.JS/shoppyglobe" target="_blank" class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all">Git Repo</a>
+                  <a
+                    href="https://shoppyglobe-rl.web.app"
+                    target="_blank"
+                    class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all"
+                    >Live Link</a
+                  >
+                  <a
+                    href="https://github.com/rajithlingam/InternShala/tree/main/projectS/REACT.JS/shoppyglobe"
+                    target="_blank"
+                    class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all"
+                    >Git Repo</a
+                  >
                 </div>
               </div>
             </div>
 
             <!-- FoodMall -->
             <div class="swiper-slide project-slide">
-              <div class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between">
+              <div
+                class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between"
+              >
                 <div>
-                  <h3 class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">FoodMall</h3>
-                  <p class="text-gray-700 dark:text-gray-300 mb-4">Food ordering app with cart & payment flow.</p>
+                  <h3
+                    class="text-xs font-semibold mb-2 text-blue-800 dark:text-blue-400"
+                  >
+                    FoodMall
+                  </h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    Food ordering app with cart & payment flow.
+                  </p>
                 </div>
-                <a href="https://github.com/rajithlingam/ReactJS/tree/main/namasteReactjs/foodMall" target="_blank" class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all">Git Repo</a>
+                <a
+                  href="https://github.com/rajithlingam/ReactJS/tree/main/namasteReactjs/foodMall"
+                  target="_blank"
+                  class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all"
+                  >Git Repo</a
+                >
               </div>
             </div>
 
             <!-- Online Library -->
             <div class="swiper-slide project-slide">
-              <div class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between">
+              <div
+                class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between"
+              >
                 <div>
-                  <h3 class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">Online Library</h3>
-                  <p class="text-gray-700 dark:text-gray-300 mb-4">Book management + authentication using React & Firebase.</p>
+                  <h3
+                    class="text-xs font-semibold mb-2 text-blue-800 dark:text-blue-400"
+                  >
+                    Online Library
+                  </h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    Book management + authentication using React & Firebase.
+                  </p>
                 </div>
                 <div class="flex gap-3">
-                  <a href="https://online-library-rl.web.app/" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">Live Link</a>
-                  <a href="https://github.com/rajithlingam/InternShala/tree/main/projectS/REACT.JS/online-library" target="_blank" class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all">Git Repo</a>
+                  <a
+                    href="https://online-library-rl.web.app"
+                    target="_blank"
+                    class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all"
+                    >Live Link</a
+                  >
+                  <a
+                    href="https://github.com/rajithlingam/InternShala/tree/main/projectS/REACT.JS/online-library"
+                    target="_blank"
+                    class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all"
+                    >Git Repo</a
+                  >
                 </div>
               </div>
             </div>
 
-            <!-- Weather Forecast App -->
+            <!-- Weather Forecast -->
             <div class="swiper-slide project-slide">
-              <div class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between">
+              <div
+                class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between"
+              >
                 <div>
-                  <h3 class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">Weather Forecast App</h3>
-                  <p class="text-gray-700 dark:text-gray-300 mb-4">Weather API implementation using pure JavaScript.</p>
+                  <h3
+                    class="text-xs font-semibold mb-2 text-blue-800 dark:text-blue-400"
+                  >
+                    Weather Forecast App
+                  </h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    Weather API implementation using pure JavaScript.
+                  </p>
                 </div>
                 <div class="flex gap-3">
-                  <a href="https://rajithlingam.github.io/InternShala/projectS/JAVASCRIPT/weather-forecast-app/index.html/" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">Live Link</a>
-                  <a href="https://github.com/rajithlingam/InternShala/tree/main/projectS/JAVASCRIPT/weather-forecast-app" target="_blank" class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all">Git Repo</a>
+                  <a
+                    href="https://rajithlingam.github.io/InternShala/projectS/JAVASCRIPT/weather-forecast-app/index.html"
+                    target="_blank"
+                    class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all"
+                    >Live Link</a
+                  >
+                  <a
+                    href="https://github.com/rajithlingam/InternShala/tree/main/projectS/JAVASCRIPT/weather-forecast-app"
+                    target="_blank"
+                    class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all"
+                    >Git Repo</a
+                  >
                 </div>
               </div>
             </div>
 
-            <!-- Student Registration System -->
+            <!-- Student Registration -->
             <div class="swiper-slide project-slide">
-              <div class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between">
+              <div
+                class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between"
+              >
                 <div>
-                  <h3 class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">Student Registration System</h3>
-                  <p class="text-gray-700 dark:text-gray-300 mb-4">Complete form system using JavaScript & DOM.</p>
+                  <h3
+                    class="text-xs font-semibold mb-2 text-blue-800 dark:text-blue-400"
+                  >
+                    Student Registration System
+                  </h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    Complete form system using JavaScript & DOM.
+                  </p>
                 </div>
                 <div class="flex gap-3">
-                  <a href="https://rajithlingam.github.io/InternShala/projectS/JAVASCRIPT/Student-Registration-System/index.html/" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">Live Link</a>
-                  <a href="https://github.com/rajithlingam/InternShala/tree/main/projectS/JAVASCRIPT/Student-Registration-System" target="_blank" class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all">Git Repo</a>
+                  <a
+                    href="https://rajithlingam.github.io/InternShala/projectS/JAVASCRIPT/Student-Registration-System/index.html"
+                    target="_blank"
+                    class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all"
+                    >Live Link</a
+                  >
+                  <a
+                    href="https://github.com/rajithlingam/InternShala/tree/main/projectS/JAVASCRIPT/Student-Registration-System"
+                    target="_blank"
+                    class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all"
+                    >Git Repo</a
+                  >
                 </div>
               </div>
             </div>
 
-            <!-- DOM ToDo List -->
+            <!-- DOM ToDo -->
             <div class="swiper-slide project-slide">
-              <div class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between">
+              <div
+                class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between"
+              >
                 <div>
-                  <h3 class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">DOM ToDo List</h3>
-                  <p class="text-gray-700 dark:text-gray-300 mb-4">JavaScript DOM manipulation project.</p>
+                  <h3
+                    class="text-xs font-semibold mb-2 text-blue-800 dark:text-blue-400"
+                  >
+                    DOM ToDo List
+                  </h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    JavaScript DOM manipulation project.
+                  </p>
                 </div>
                 <div class="flex gap-3">
-                  <a href="https://rajithlingam.github.io/InternShala/projectS/JAVASCRIPT/DOM_ToDo-LisT/index.html/" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">Live Link</a>
-                  <a href="https://github.com/rajithlingam/InternShala/tree/main/projectS/JAVASCRIPT/DOM_ToDo-LisT" target="_blank" class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all">Git Repo</a>
+                  <a
+                    href="https://rajithlingam.github.io/InternShala/projectS/JAVASCRIPT/DOM_ToDo-LisT/index.html"
+                    target="_blank"
+                    class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all"
+                    >Live Link</a
+                  >
+                  <a
+                    href="https://github.com/rajithlingam/InternShala/tree/main/projectS/JAVASCRIPT/DOM_ToDo-LisT"
+                    target="_blank"
+                    class="px-4 py-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all"
+                    >Git Repo</a
+                  >
                 </div>
               </div>
             </div>
 
             <!-- NetflixGPT -->
             <div class="swiper-slide project-slide">
-              <div class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between">
+              <div
+                class="bg-yellow-300 dark:bg-blue-950 rounded-lg shadow-lg p-6 flex flex-col justify-between"
+              >
                 <div>
-                  <h3 class="text-xl font-semibold mb-2 text-blue-800 dark:text-blue-400">NetflixGPT Clone</h3>
-                  <p class="text-gray-700 dark:text-gray-300 mb-4">AI-based movie recommender using TMDB & OpenAI.</p>
+                  <h3
+                    class="text-xs font-semibold mb-2 text-blue-800 dark:text-blue-400"
+                  >
+                    NetflixGPT Clone
+                  </h3>
+                  <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    AI-based movie recommender using TMDB & OpenAI.
+                  </p>
                 </div>
-                <a href="https://rajithlingamnetflixgpt.web.app/" target="_blank" class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all">Live Link</a>
+                <a
+                  href="https://rajithlingamnetflixgpt.web.app"
+                  target="_blank"
+                  class="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all"
+                  >Live Link</a
+                >
               </div>
             </div>
-
           </div>
 
           <div class="swiper-nav-wrap">
-            <button class="swiper-button-prev group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all">
-              <svg class="h-5 w-5 text-indigo-600 group-hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"><path d="M10.0002 11.9999L6 7.99971L10.0025 3.99719" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <button
+              class="swiper-button-prev group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all"
+            >
+              ‹
             </button>
-            <button class="swiper-button-next group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all">
-              <svg class="h-5 w-5 text-indigo-600 group-hover:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"><path d="M5.99984 4.00012L10 8.00029L5.99748 12.0028" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <button
+              class="swiper-button-next group !p-2 flex justify-center items-center border border-indigo-600 !w-12 !h-12 rounded-full hover:bg-indigo-600 transition-all"
+            >
+              ›
             </button>
           </div>
         </div>
@@ -364,12 +1041,25 @@
     </section>
 
     <!-- footer -->
-    <footer id="footer" class="w-full sticky top-0 px-4 py-8 bg-yellow-500 dark:bg-gray-900 text-center transition-colors duration-500">
+    <footer
+      id="footer"
+      class="w-full sticky top-0 px-4 py-8 bg-yellow-500 dark:bg-gray-900 text-center transition-colors duration-500"
+    >
       <div class="flex flex-col md:flex-row justify-center gap-4 mb-4">
-        <a href="tel:+919025609150" class="inline-block px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105">Call Me</a>
-        <a href="mailto:work.rajithlingam@gmail.com" class="inline-block px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105">Email Me</a>
+        <a
+          href="tel:+919025609150"
+          class="inline-block px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
+          >Call Me</a
+        >
+        <a
+          href="mailto:work.rajithlingam@gmail.com"
+          class="inline-block px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
+          >Email Me</a
+        >
       </div>
-      <p class="text-gray-700 dark:text-gray-300 text-sm">© 2025 Rajithlingam. All rights reserved.</p>
+      <p class="text-gray-700 dark:text-gray-300 text-sm">
+        © 2025 Rajithlingam. All rights reserved.
+      </p>
     </footer>
 
     <!-- core scripts (menu, theme) -->
@@ -379,11 +1069,16 @@
       const themeToggle = document.getElementById("theme-toggle");
       const htmlElement = document.documentElement;
 
-      menuToggle.addEventListener("click", () => { navMenu.classList.toggle("hidden"); });
+      menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("hidden");
+      });
 
       document.querySelectorAll("#nav-menu a").forEach((item) => {
         item.addEventListener("click", () => {
-          if (!navMenu.classList.contains("hidden") && window.innerWidth < 768) {
+          if (
+            !navMenu.classList.contains("hidden") &&
+            window.innerWidth < 768
+          ) {
             navMenu.classList.add("hidden");
           }
         });
@@ -399,7 +1094,11 @@
         }
       });
 
-      if (localStorage.getItem("theme") === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
         htmlElement.classList.add("dark");
       } else {
         htmlElement.classList.remove("dark");
@@ -409,29 +1108,67 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Swiper Init: applies to all .multiple-slide-carousel elements -->
     <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        document.querySelectorAll('.multiple-slide-carousel').forEach(function (el) {
-          new Swiper(el, {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 16,
-            centeredSlides: false,
-            navigation: {
-              nextEl: el.querySelector('.swiper-button-next') || el.querySelector('.swiper-button-next, .swiper-button-next'),
-              prevEl: el.querySelector('.swiper-button-prev') || el.querySelector('.swiper-button-prev, .swiper-button-prev'),
-            },
-            breakpoints: {
-              990: { slidesPerView: 1, spaceBetween: 12 },
-              1028: { slidesPerView: 2, spaceBetween: 20 },
-              1400: { slidesPerView: 3, spaceBetween: 30 }
-            },
-            a11y: true,
-            keyboard: { enabled: true },
-            grabCursor: true
-          });
+      document.addEventListener("DOMContentLoaded", function () {
+        if (typeof Swiper === "undefined") return;
+
+        /* ----------------- SKILLS Swiper (explicit config) -----------------
+           Use slidesPerView: 'auto' + centeredSlides for the floating, centered desktop look.
+           This Swiper ONLY targets .skills-swiper so the other inits won't affect it.
+        */
+        new Swiper(".skills-swiper", {
+          loop: true,
+          slidesPerView: 6,
+          spaceBetween: 16,
+          navigation: {
+            nextEl: ".skills-next",
+            prevEl: ".skills-prev",
+          },
+          pagination: {
+            el: ".skills-swiper .swiper-pagination",
+            clickable: true,
+          },
+          breakpoints: {
+            1400: { slidesPerView: 6 },
+            1024: { slidesPerView: 5 },
+            768: { slidesPerView: 4 },
+            480: { slidesPerView: 3 },
+            320: { slidesPerView: 2 },
+          },
         });
+
+        /* ----------------- Projects & Services & Certs Swipers -----------------
+           Initialize each "multiple-slide-carousel" separately so each gets correct nav elements.
+        */
+        document
+          .querySelectorAll(".multiple-slide-carousel")
+          .forEach(function (el) {
+            // find nav buttons inside the same container (swiper-nav-wrap)
+            const prev = el.querySelector(
+              ".swiper-nav-wrap .swiper-button-prev"
+            );
+            const next = el.querySelector(
+              ".swiper-nav-wrap .swiper-button-next"
+            );
+
+            new Swiper(el, {
+              loop: true,
+              slidesPerView: 1,
+              spaceBetween: 16,
+              navigation: {
+                nextEl: next,
+                prevEl: prev,
+              },
+              breakpoints: {
+                990: { slidesPerView: 1, spaceBetween: 12 },
+                1028: { slidesPerView: 2, spaceBetween: 20 },
+                1400: { slidesPerView: 3, spaceBetween: 30 },
+              },
+              a11y: true,
+              keyboard: { enabled: true },
+              grabCursor: true,
+            });
+          });
       });
     </script>
   </body>
